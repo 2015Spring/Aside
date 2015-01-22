@@ -15,4 +15,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	now())
 	</insert>
 	
+	<select id="selectList" resultType="Diary">
+	 select diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
+	 diary_image from diary
+	</select>
+	
 </mapper>

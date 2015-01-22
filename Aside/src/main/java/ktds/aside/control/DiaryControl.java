@@ -8,6 +8,7 @@ import ktds.aside.domain.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -30,4 +31,16 @@ public class DiaryControl {
 		diaryDao.insert(diary);
 		return "redirect:list_timeline.jsp";
 	}
+	
+	@RequestMapping("/list_timeline")
+    public String listTimeline(Model model) {
+	    model.addAttribute("list", diaryDao.selectList());
+        return "../diary/list_timeline.jsp";
+    }
+	
+	@RequestMapping("/view")
+    public void view(int no, Model model) {
+        model.addAttribute("list", diaryDao.selectOne(no));
+//        return "/diary/view.jsp";
+    }
 }

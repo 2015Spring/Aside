@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,10 +28,13 @@
 	
 	<hr>
 	
-	<div><!-- 반복 -->
-		<label>날짜넣을부분</label><br>
-		<p>내용미리보기넣을부분</p>
-	</div><!-- 반복끝 -->
+	<c:forEach var="diary" items="${list}">
+		<div><!-- 반복 -->
+			<a href="view.do?no=${diary.diary_no}"><label>${diary.diary_date}</label></a><br>
+			<p>${diary.diary_context}</p>
+		</div><!-- 반복끝 -->
+	</c:forEach>
+	
 	<a href="#"><img src="../image/view_type/viewtype_list.png"/></a>
 	<a href="#"><img src="../image/view_type/viewtype_gird.png"/></a>
 	<a href="#"><img src="../image/view_type/viewtype_calender.png"/></a>
