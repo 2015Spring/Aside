@@ -19,10 +19,11 @@ public class DiaryControl {
 
 	@RequestMapping("/add")
 	public String add(Diary diary, HttpSession session) {
-		System.out.println("sldkfjlsjflkjsfdjsfljk");
+		System.out.println("다이어리 내용을 찍어보겠습니다");
 		System.out.println(diary.getDiary_date());
 		System.out.println(diary.getDiary_context());
 		System.out.println("comment : " +diary.getDiary_iscomment());
+		System.out.println("open : " +diary.getDiary_isopen());
 		User user = (User)session.getAttribute("loginInfo");
 		diary.setUser_no(user.getUser_no());
 		diaryDao.insert(diary);
