@@ -4,15 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../css/common-header.css">
 <title>:: Say in an aside ::</title>
 </head>
 
 <body>
-	<a href="#">로고</a><br>
-	<a href="#">새글</a>
-	<a href="#">목록</a>
-	<a href="#">북마크</a>
-	<a href="#">설정</a>
+	<div id="diary_menu">
+		<div style="float:left">
+			<a href="list_timeline.jsp"><img src="../image/logo.png"></a>
+		</div>
+		<div style="float:right">
+			<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
+			<a href="#"><img src="../image/menus/menu_mylist.png"></a>
+			<a href="#"><img src="../image/menus/menu_bookmark.png"></a>
+			<a href="#"><img src="../image/menus/menu_setting.png"></a>
+		</div>
+	</div>
 	
 	<hr>
 	

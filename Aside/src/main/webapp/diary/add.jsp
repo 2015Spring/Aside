@@ -8,8 +8,22 @@
 	<title>:: Say in an aside ::</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/common-header.css">
 	<script type="text/javascript" src="../js/jquery-latest.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
+	
+	<script>
+		$(function() {
+			$('#image_radio_open').click(function() {
+			  if($(this).is(":checked")) {$(this).attr('value', 0)} // 0
+			  else {$(this).attr('value', 1)} // 1
+			});
+			$('#image_radio_comment').click(function() {
+			    if($(this).is(":checked")) {$(this).attr('value', 0)} // 0
+			    else {$(this).attr('value', 1)} // 1
+			  });
+		});
+</script>
 </head>
 
 <%
