@@ -51,22 +51,22 @@ hr {
 	-webkit-appearance: none;
 }
 
-#image_radio_open {
+#image_radio_open:checked {
 	background: url(../image/add,update_icon/add,update_unlock.png) left
 		center no-repeat;
 }
 
-#image_radio_open:checked {
+#image_radio_open {
 	background: url(../image/add,update_icon/add,update_lock.png) left
 		center no-repeat;
 }
 
-#image_radio_comment {
+#image_radio_comment:checked {
 	background: url(../image/add,update_icon/add,update_cmactive.png) left
 		center no-repeat;
 }
 
-#image_radio_comment:checked {
+#image_radio_comment {
 	background: url(../image/add,update_icon/add,update_cminactive.png) left
 		center no-repeat;
 }

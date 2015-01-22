@@ -11,19 +11,6 @@
 	<link rel="stylesheet" href="../css/common-header.css">
 	<script type="text/javascript" src="../js/jquery-latest.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
-	
-	<script>
-		$(function() {
-			$('#image_radio_open').click(function() {
-			  if($(this).is(":checked")) {$(this).attr('value', 0)} // 0
-			  else {$(this).attr('value', 1)} // 1
-			});
-			$('#image_radio_comment').click(function() {
-			    if($(this).is(":checked")) {$(this).attr('value', 0)} // 0
-			    else {$(this).attr('value', 1)} // 1
-			  });
-		});
-</script>
 </head>
 
 <%
@@ -56,8 +43,8 @@
 		</div>
 		<div>
 			<div style="float:left">
-				<input type="checkbox" value="1" name="diary_isopen" id="image_radio_open"> 
-				<input type="checkbox" value="1" name="diary_iscomment" id="image_radio_comment"> 
+				<input type="checkbox" name="diary_isopen" value="1" id="image_radio_open"> 
+				<input type="checkbox" name="diary_iscomment" value="1" id="image_radio_comment"> 
 			</div>
 			<div style="float:right">
 				<input type="submit" value="" id="image_button_insert"/>
