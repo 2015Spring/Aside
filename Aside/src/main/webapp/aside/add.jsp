@@ -10,7 +10,26 @@
 <link rel="stylesheet" href="../css/common.css">
 <script type="text/javascript" src="../js/jquery-latest.js"></script>
 <script type="text/javascript" src="../js/common.js"></script>
-<style>
+<style type="text/css">
+	#diary_menu {
+		width:820px;
+		margin:auto;
+		display:inline-block;
+	}
+	#diary_form {
+		width:820px;
+		margin:auto;
+		background-color:#E0E0E0;
+		border-radius:5px;
+		padding:30px;
+		display:inline-block;
+	}
+	
+	hr {
+		width:820px;
+		display: block;
+	}
+	
 	#image_button_insert, #image_button_cancle {
 		border: none;
 	    width: 42px;
@@ -42,15 +61,12 @@
 	#image_radio_comment:checked {
 		background:url(../image/add,update_icon/add,update_cminactive.png) left center no-repeat; 
 	}
-	
-	#diary_form {
-		width:820px;
-		background-color:#E0E0E0;
-		border-radius:5px;
-		padding:30px;
-		display:inline-block;
-	}
 </style>
+<script>
+	$(window).resize(function() {
+		
+	});
+</script>
 </head>
 
 <%
@@ -59,31 +75,32 @@
 				+ (calendar.get(Calendar.MONTH) + 1) + "."
 				+ calendar.get(Calendar.DATE);
 %>
-<body>
-	<header id="diary_menu">
-		<a href="#"><img src="../image/logo.png"></a>
-		<a href="#"><img src="../image/menus/menu_add.png"></a>
-		<a href="#"><img src="../image/menus/menu_mylist.png"></a>
-		<a href="#"><img src="../image/menus/menu_bookmark.png"></a>
-		<a href="#"><img src="../image/menus/menu_setting.png"></a>
-		<hr>
-	</header>
+<body >
+	<div id="diary_menu">
+		<div style="float:left">
+			<a href="#"><img src="../image/logo.png"></a>
+		</div>
+		<div style="float:right">
+			<a href="#"><img src="../image/menus/menu_add.png"></a>
+			<a href="#"><img src="../image/menus/menu_mylist.png"></a>
+			<a href="#"><img src="../image/menus/menu_bookmark.png"></a>
+			<a href="#"><img src="../image/menus/menu_setting.png"></a>
+		</div>
+	</div>
+
+	<hr>
 	
 	<form action="add.do" method="post" id="diary_form">
 		<div class="form-group">
 			<input type="text" name="diary_date" class="form-control input-lg" value=<%=date%>>
 		</div>
 		<div class="form-group">
-			<textarea class="form-control"></textarea>
+			<textarea name="diary_content" class="form-control"></textarea>
 		</div>
 		<div>
 			<div style="float:left">
-				<label class="checkbox-inline">
-					<input type="checkbox" name="diary_isopen" id="image_radio_open"> 
-				</label>
-				<label class="checkbox-inline">
-					<input type="checkbox" name="diary_iscomment" id="image_radio_comment"> 
-				</label>
+				<input type="checkbox" name="diary_isopen" id="image_radio_open"> 
+				<input type="checkbox" name="diary_iscomment" id="image_radio_comment"> 
 			</div>
 			<div style="float:right">
 				<input type="submit" value="" id="image_button_insert"/>
