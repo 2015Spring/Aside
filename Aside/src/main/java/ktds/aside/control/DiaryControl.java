@@ -8,16 +8,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/diary") 
+@RequestMapping("/aside")
 public class DiaryControl {
- 
-    @Autowired
-    DiaryDao diaryDao;
-    
-    @RequestMapping("/add")
-    public String add(Diary diary){
-      System.out.println("안뇽!");
-      diaryDao.insert(diary);
-      return "redirect:list_timeline.jsp"; 
-    }
+
+	@Autowired
+	DiaryDao diaryDao;
+
+	@RequestMapping("/add")
+	public String add(Diary diary) {
+		System.out.println("sldkfjlsjflkjsfdjsfljk");
+		diaryDao.insert(diary);
+		return "redirect:list_timeline.jsp";
+	}
 }
