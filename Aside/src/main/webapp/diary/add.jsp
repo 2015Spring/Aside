@@ -33,11 +33,10 @@
 		display: block;
 	}
 	
-	<!--form button-->
 	#image_button_insert, #image_button_cancle {
 		border: none;
-	    width: 42px;
-	    height: 42px;
+    width: 42px;
+    height: 42px;
 	}
 	#image_button_insert {
 		background:url(../image/add,update_icon/add,update_insert.png) no-repeat;
@@ -67,9 +66,6 @@
 	}
 </style>
 <script>
-	$(window).resize(function() {
-		
-	});
 </script>
 </head>
 
@@ -103,8 +99,8 @@
 		</div>
 		<div>
 			<div style="float:left">
-				<input type="checkbox" value = "0" name="diary_isopen" id="image_radio_open"> 
-				<input type="checkbox" value = "0" name="diary_iscomment" id="image_radio_comment"> 
+				<input type="checkbox" value="0" name="diary_isopen" id="image_radio_open"> 
+				<input type="checkbox" value="0" name="diary_iscomment" id="image_radio_comment"> 
 			</div>
 			<div style="float:right">
 				<input type="submit" value="" id="image_button_insert"/>

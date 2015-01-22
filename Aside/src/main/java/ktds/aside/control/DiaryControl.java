@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/aside")
+@RequestMapping("/diary")
 public class DiaryControl {
 
 	@Autowired
@@ -20,9 +20,12 @@ public class DiaryControl {
 	@RequestMapping("/add")
 	public String add(Diary diary, HttpSession session) {
 		System.out.println("sldkfjlsjflkjsfdjsfljk");
-//		User user = (User)session.getAttribute("loginInfo");
-//		diary.setUser_no(user.getUser_no());
-//		diaryDao.insert(diary);
+		System.out.println(diary.getDiary_date());
+		System.out.println(diary.getDiary_context());
+		System.out.println("comment : " +diary.getDiary_iscomment());
+		User user = (User)session.getAttribute("loginInfo");
+		diary.setUser_no(user.getUser_no());
+		diaryDao.insert(diary);
 		return "redirect:list_timeline.jsp";
 	}
 }
