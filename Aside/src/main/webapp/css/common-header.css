@@ -1,0 +1,65 @@
+@CHARSET "EUC-KR";
+
+#diary_menu {
+	width: 820px;
+	margin: auto;
+	display: inline-block;
+}
+
+#diary_form {
+	width: 820px;
+	margin: auto;
+	background-color: #E0E0E0;
+	border-radius: 5px;
+	padding: 30px;
+	display: inline-block;
+}
+
+hr {
+	width: 820px;
+	display: block;
+}
+
+#image_button_insert, #image_button_cancle {
+	border: none;
+	width: 42px;
+	height: 42px;
+}
+
+#image_button_insert {
+	background: url(../image/add,update_icon/add,update_insert.png)
+		no-repeat;
+}
+
+#image_button_cancle {
+	background: url(../image/add,update_icon/add,update_cancle.png)
+		no-repeat;
+}
+
+#image_radio_open, #image_radio_comment {
+	border: none;
+	width: 42px;
+	height: 42px;
+	background-size: 42px;
+	-webkit-appearance: none;
+}
+
+#image_radio_open {
+	background: url(../image/add,update_icon/add,update_unlock.png) left
+		center no-repeat;
+}
+
+#image_radio_open:checked {
+	background: url(../image/add,update_icon/add,update_lock.png) left
+		center no-repeat;
+}
+
+#image_radio_comment {
+	background: url(../image/add,update_icon/add,update_cmactive.png) left
+		center no-repeat;
+}
+
+#image_radio_comment:checked {
+	background: url(../image/add,update_icon/add,update_cminactive.png) left
+		center no-repeat;
+}

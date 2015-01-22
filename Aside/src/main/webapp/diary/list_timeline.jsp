@@ -20,8 +20,8 @@
 		<label>날짜넣을부분</label><br>
 		<p>내용미리보기넣을부분</p>
 	</div><!-- 반복끝 -->
-	<a href="#">달력형</a>
-	<a href="#">타임라인</a>
-	<a href="#">그리드</a>
+	<a href="#"><img src="../image/view_type/viewtype_list.png"/></a>
+	<a href="#"><img src="../image/view_type/viewtype_gird.png"/></a>
+	<a href="#"><img src="../image/view_type/viewtype_calender.png"/></a>
 </body>
 </html>
