@@ -5,7 +5,7 @@
 <html>
 <head><!-- 가운데 정렬을 합시다! -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Aside</title>
+<title>:: Say in an aside ::</title>
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/common.css">
 <script type="text/javascript" src="../js/jquery-latest.js"></script>
