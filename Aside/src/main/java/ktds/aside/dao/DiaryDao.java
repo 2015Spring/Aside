@@ -17,7 +17,7 @@ public class DiaryDao {
   
   public void insert(Diary diary){
     SqlSession sqlSession=sqlSessionFactory.openSession();
-    System.out.println(diary.getDiary_context());
+    //System.out.println(diary.getDiary_context());
     try {
         sqlSession.insert("ktds.aside.dao.DiaryDao.insert", diary); 
         sqlSession.commit();

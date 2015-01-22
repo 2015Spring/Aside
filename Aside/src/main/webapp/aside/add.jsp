@@ -71,8 +71,8 @@
 
 <%
 	Calendar calendar = Calendar.getInstance();
-	String date = calendar.get(Calendar.YEAR) + "."
-				+ (calendar.get(Calendar.MONTH) + 1) + "."
+	String date = calendar.get(Calendar.YEAR) + "/"
+				+ (calendar.get(Calendar.MONTH) + 1) + "/"
 				+ calendar.get(Calendar.DATE);
 %>
 <body >
@@ -95,12 +95,12 @@
 			<input type="text" name="diary_date" class="form-control input-lg" value=<%=date%>>
 		</div>
 		<div class="form-group">
-			<textarea name="diary_content" class="form-control"></textarea>
+			<textarea name="diary_context" class="form-control"></textarea>
 		</div>
 		<div>
 			<div style="float:left">
-				<input type="checkbox" name="diary_isopen" id="image_radio_open"> 
-				<input type="checkbox" name="diary_iscomment" id="image_radio_comment"> 
+				<input type="checkbox" value = "0" name="diary_isopen" id="image_radio_open"> 
+				<input type="checkbox" value = "0" name="diary_iscomment" id="image_radio_comment"> 
 			</div>
 			<div style="float:right">
 				<input type="submit" value="" id="image_button_insert"/>
