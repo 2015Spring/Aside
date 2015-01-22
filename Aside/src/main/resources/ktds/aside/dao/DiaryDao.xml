@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ktds.aside.dao.DiaryDao">
+
+	
+	<insert id="insert" parameterType="Diary">
+	insert into diary
+	(user_no,diary_context,diary_isopen,
+	diary_iscomment,diary_date) values 
+	(#{user_no},#{diary_context},
+	#{diary_isopen},#{diary_iscomment},
+	now())
+	</insert>
+	
+</mapper>
