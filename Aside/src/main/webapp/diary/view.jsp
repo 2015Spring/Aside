@@ -12,14 +12,27 @@
 	<title>:: Say in an aside ::</title>
 	
 	<script>
-	 
+	 $(window).load(function() {
+	     $('#diary_form').css('display', 'none');
+	 });
+	 $(function() {
+		   $('#image_button_update').click(function() {
+			   $('#diary_view').css('display', 'none');
+			   $('#diary_form').css('display', 'block');
+		   });
+		   
+		   $('#image_button_cancle').click(function() {
+			   $('#diary_view').css('display', 'block');
+		     $('#diary_form').css('display', 'none');
+		   });
+	 });
 	</script>
 </head>
 
 <body>
 	<div id="diary_menu">
 		<div style="float:left">
-			<a href="list_timeline.jsp"><img src="../image/logo.png"></a>
+			<a href="list_mytimeline.do"><img src="../image/logo.png"></a>
 		</div>
 		<div style="float:right">
 			<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
@@ -31,10 +44,10 @@
 	
 	<hr>
 	
-	<div id="diary_view">
+	<div id="diary_view" style="background-color:lightgray">
 		<label>${diary.diary_date}</label><br>
 		<p>${diary.diary_context}</p>
-		<button onclick="showUpdate()" id="image_button_update"><span class="glyphicon glyphicon-pencil"></span></button>
+		<button id="image_button_update"><span class="glyphicon glyphicon-pencil"></span></button>
 		<a href="delete.do?no=${diary.diary_no}"><span class="glyphicon glyphicon-trash"></span></a>
 	</div>
 	
@@ -51,7 +64,7 @@
           <input type="checkbox" name="diary_iscomment" value="1" id="image_radio_comment"> 
         </div>
         <div style="float:right">
-          <input type="submit" value="" id="image_button_update"/>
+          <input type="submit" value="" id="image_button_insert"/>
           <input type="button" id="image_button_cancle"/>
         </div>
       </div>

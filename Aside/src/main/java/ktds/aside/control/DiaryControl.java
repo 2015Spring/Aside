@@ -41,6 +41,6 @@ public class DiaryControl {
 	@RequestMapping("/delete")
     public String delete(int no) {
 	    diaryDao.delete(no);
-        return "redirect:mylist_mytimeline.do";
+        return "redirect:list_mytimeline.do";
     }
 }
