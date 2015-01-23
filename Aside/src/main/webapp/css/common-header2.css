@@ -1,5 +1,9 @@
 @CHARSET "EUC-KR";
 
+body {
+	overflow:scroll;
+}
+
 #wrapper {
 	margin:2.5% 5% 2.5% 5%;
 }
