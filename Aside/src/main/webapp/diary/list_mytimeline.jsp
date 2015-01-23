@@ -25,7 +25,7 @@
 				<br><br>
 			</div>
 			
-			<jsp:include page="view_type.jsp"/>
+			<jsp:include page="view_type.jsp"/> 
 		</div>
 		
 	</div>
