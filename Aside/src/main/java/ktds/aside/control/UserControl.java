@@ -34,7 +34,7 @@ public class UserControl {
       if(user != null)
       {
         session.setAttribute("loginInfo", user);
-        return "redirect:../diary/list_timeline.do";
+        return "redirect:../diary/list_mytimeline.do";
       }else
       {
         return "redirect:login.html";

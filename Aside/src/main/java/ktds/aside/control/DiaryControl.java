@@ -23,13 +23,13 @@ public class DiaryControl {
   	    User user = (User)session.getAttribute("loginInfo");
   	    diary.setUser_no(user.getUser_no());
 		diaryDao.insert(diary);
-		return "redirect:list_timeline.do";
+		return "redirect:list_mytimeline.do";
 	}
 	
-	@RequestMapping("/list_timeline")
+	@RequestMapping("/list_mytimeline")
     public String listTimeline(Model model) {
 	    model.addAttribute("list", diaryDao.selectList());
-        return "../diary/list_timeline.jsp";
+        return "../diary/list_mytimeline.jsp";
     }
 	
 	@RequestMapping("/view")
@@ -41,6 +41,6 @@ public class DiaryControl {
 	@RequestMapping("/delete")
     public String delete(int no) {
 	    diaryDao.delete(no);
-        return "redirect:list_timeline.do";
+        return "redirect:mylist_mytimeline.do";
     }
 }
