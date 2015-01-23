@@ -2,15 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/common.css">
-	<script type="text/javascript" src="../js/jquery-latest.js"></script>
-	<script type="text/javascript" src="../js/common.js"></script>
-	<title>:: Say in an aside ::</title>
+	<jsp:include page="head_settings.jsp"/>
 	
 	<script>
 	 $(window).load(function() {
@@ -44,26 +39,7 @@
 
 <body>
 	<div id="wrapper">
-		<div id="header">
-			<div style="float: left">
-				<a href="list_mytimeline.do"><img src="../image/logo.png"></a>
-			</div>
-			<div id="diary_menu">
-				<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
-				<!-- .do로 바꾸기 -->
-				<a href="list_othertimeline.jsp"><img
-					src="../image/menus/menu_mylist.png"></a>
-				<!-- .do로 바꾸기 -->
-				<a href="list_bookmarktimeline.jsp">
-					<img src="../image/menus/menu_bookmark.png">
-				</a>
-				<a href="#">
-					<img src="../image/menus/menu_setting.png">
-				</a>
-			</div>
-		</div>
-
-		<hr>
+		<jsp:include page="header_other.jsp"/>
 
 		<div id="article">
 		
