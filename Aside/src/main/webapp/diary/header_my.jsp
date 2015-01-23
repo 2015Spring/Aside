@@ -13,7 +13,7 @@
 				</a>
 				
 				<!-- .do로 바꾸기 -->
-				<a href="list_bookmarktimeline.jsp">
+				<a href="list_bookmarktimeline.do">
 					<img src="../image/menus/menu_bookmark.png">
 				</a>
 				

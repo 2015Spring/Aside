@@ -9,20 +9,18 @@
 				</a>
 				
 				<!-- .do로 바꾸기 -->
-				<a href="list_othertimeline.jsp"><img
+				<a href="list_othertimeline.do"><img
 					src="../image/menus/menu_mylist.png">
 				</a>
 				
 				<!-- .do로 바꾸기 -->
-				<a href="list_bookmarktimeline.jsp">
+				<a href="list_bookmarktimeline.do">
 					<img src="../image/menus/menu_bookmark.png">
 				</a>
 				
 				<a href="#">
 					<img src="../image/menus/menu_setting.png">
 				</a>
-				
 			</div>
 		</div>
-		
 		<hr>
