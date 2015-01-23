@@ -27,8 +27,8 @@ public class DiaryControl {
   }
 
   @RequestMapping("/list_mytimeline")
-  public String listTimeline(Model model) {
-    model.addAttribute("list", diaryDao.selectMyList());
+  public String listTimeline(HttpSession session, Model model) {
+    model.addAttribute("list", diaryDao.selectMyList(((User)session.getAttribute("loginInfo")).getUser_no()));
     return "../diary/list_mytimeline.jsp";
   }
 
@@ -48,5 +48,11 @@ public class DiaryControl {
   public String update(Diary diary) {
     diaryDao.update(diary);
     return "redirect:view.do?no="+diary.getDiary_no();
+  }
+  
+  @RequestMapping("/list_othertimeline")
+  public String listOtherList(Model model) {
+    model.addAttribute("list", diaryDao.selectOtherList());
+    return "../diary/list_othertimeline.jsp";
   }
 }

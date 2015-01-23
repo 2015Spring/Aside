@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ktds.aside.domain.Diary;
+import ktds.aside.domain.User;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -31,10 +32,10 @@ public class DiaryDao {
     }
   }
 
-  public List<Diary> selectMyList() {
+  public List<Diary> selectMyList(int no) {
     SqlSession sqlSession = sqlSessionFactory.openSession();
     try {
-      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectMyList");
+      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectMyList", no);
     } catch (Exception e) {
       e.printStackTrace();
       return null;
@@ -74,6 +75,18 @@ public class DiaryDao {
       sqlSession.commit();
     } catch (Exception e) {
       e.printStackTrace();
+    } finally {
+      sqlSession.close();
+    }
+  }
+  
+  public List<Diary> selectOtherList() {
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    try {
+      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectOtherList");
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
     } finally {
       sqlSession.close();
     }
