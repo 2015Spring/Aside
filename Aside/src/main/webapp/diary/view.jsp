@@ -27,9 +27,30 @@
 	
 	<hr>
 	
-	<label>${diary.diary_date}</label><br>
-	<p>${diary.diary_context}</p>
-	<a href="update.do?no=${diary.diary_no}"><span class="glyphicon glyphicon-pencil"></span></a>
-	<a href="delete.do?no=${diary.diary_no}"><span class="glyphicon glyphicon-trash"></span></a>
+	<div>
+		<label>${diary.diary_date}</label><br>
+		<p>${diary.diary_context}</p>
+		<a href="update.do?no=${diary.diary_no}"><span class="glyphicon glyphicon-pencil"></span></a>
+		<a href="delete.do?no=${diary.diary_no}"><span class="glyphicon glyphicon-trash"></span></a>
+	</div>
+	
+  <form action="add.do" method="post" id="diary_form">
+      <div class="form-group">
+        <input type="text" name="diary_date" class="form-control input-lg" value="${diary.diary_date} }">
+      </div>
+      <div class="form-group">
+        <textarea name="diary_context" class="form-control">${diary.diary_context}</textarea>
+      </div>
+      <div>
+        <div style="float:left">
+          <input type="checkbox" name="diary_isopen" value="1" id="image_radio_open"> 
+          <input type="checkbox" name="diary_iscomment" value="1" id="image_radio_comment"> 
+        </div>
+        <div style="float:right">
+          <input type="submit" value="" id="image_button_insert"/>
+          <input type="button" id="image_button_cancle"/>
+        </div>
+      </div>
+    </form>
 </body>
 </html>
