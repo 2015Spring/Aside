@@ -29,7 +29,7 @@ public class DiaryControl {
 		System.out.println("open : " + diary.getDiary_isopen());
 		System.out.println("comment : " + diary.getDiary_iscomment());
 		diaryDao.insert(diary);
-		return "redirect:list_timeline.jsp";
+		return "redirect:list_timeline.do";
 	}
 	
 	@RequestMapping("/list_timeline")
@@ -39,8 +39,10 @@ public class DiaryControl {
     }
 	
 	@RequestMapping("/view")
-    public void view(int no, Model model) {
-        model.addAttribute("list", diaryDao.selectOne(no));
-//        return "/diary/view.jsp";
+    public String view(int no, Model model) {
+	  System.out.println("nnnnoooooooooooo :" + no);
+        model.addAttribute("diary", diaryDao.selectOne(no));
+        System.out.println(model);
+        return "/diary/view.jsp";
     }
 }

@@ -27,9 +27,9 @@
 	
 	<hr>
 	
-	<label>날짜넣을부분</label><br>
-	<p>내용넣을부분</p>
-	<a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-	<a href="#"><span class="glyphicon glyphicon-trash"></span></a>
+	<label>${diary.diary_date}</label><br>
+	<p>${diary.diary_context}</p>
+	<a href="update.do?no=${diary.diary_no}"><span class="glyphicon glyphicon-pencil"></span></a>
+	<a href="delete.do?no=${diary.diary_no}"><span class="glyphicon glyphicon-trash"></span></a>
 </body>
 </html>

@@ -17,7 +17,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectList" resultType="Diary">
 	 select diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
-	 diary_image from diary
+	 diary_image from diary order by diary_date desc
 	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="Diary">
+   select diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
+   diary_image from diary where diary_no = #{diary_no}
+  </select>
 	
 </mapper>
