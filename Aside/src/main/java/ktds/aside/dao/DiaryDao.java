@@ -31,10 +31,10 @@ public class DiaryDao {
     }
   }
 
-  public List<Diary> selectList() {
+  public List<Diary> selectMyList() {
     SqlSession sqlSession = sqlSessionFactory.openSession();
     try {
-      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectList");
+      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectMyList");
     } catch (Exception e) {
       e.printStackTrace();
       return null;

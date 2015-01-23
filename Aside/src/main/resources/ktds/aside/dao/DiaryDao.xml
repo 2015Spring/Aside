@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	now())
 	</insert>
 	
-	<select id="selectList" resultType="Diary">
+	<select id="selectMyList" resultType="Diary">
 	 select diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
 	 diary_image from diary order by diary_date desc
 	</select>
@@ -32,7 +32,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </delete>
   
   <update id="update" parameterType="Diary">
-   update diary set diary_context = #{diary_context}
+   update diary set 
+    diary_context = #{diary_context},
+    diary_isopen = #{diary_isopen},
+    diary_iscomment = #{diary_iscomment}
    where diary_no=#{diary_no}
   </update>
 	
