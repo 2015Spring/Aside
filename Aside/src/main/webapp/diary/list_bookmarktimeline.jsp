@@ -7,8 +7,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/common.css">
-	<!-- <link rel="stylesheet" href="../css/common-header.css"> -->
-	<link rel="stylesheet" href="../css/common-header2.css">
 	<script type="text/javascript" src="../js/jquery-latest.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
 	<title>:: Say in an aside ::</title>
@@ -36,8 +34,8 @@
 			<div id="article_list">
 				<c:forEach var="diary" items="${list}">
 					<div id="article_list_repeat"><!-- 반복 -->
-						<a href="view.do?no=${diary.diary_no}">
-							<label>${diary.diary_date}</label>
+						<a href="view.do?no=${diary.diary_no}" id="list_title">
+							${diary.diary_date}
 						</a><br>
 						<pre>${diary.diary_context}</pre>
 					</div><!-- 반복끝 -->

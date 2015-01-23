@@ -8,8 +8,6 @@
 	<title>:: Say in an aside ::</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/common.css">
-	<!-- <link rel="stylesheet" href="../css/common-header.css"> -->
-	<link rel="stylesheet" href="../css/common-header2.css">
 	<script type="text/javascript" src="../js/jquery-latest.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
 </head>
@@ -53,7 +51,8 @@
 				</div>
 				<div style="float:right">
 					<input type="submit" value="" id="image_button_insert"/>
-					<input type="button" id="image_button_cancle"/>
+					<input type="button" id="image_button_cancle"
+							onclick="history.back();"/>
 				</div>
 			</div>
 		</form>
