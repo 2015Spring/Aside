@@ -1,7 +1,7 @@
 @CHARSET "EUC-KR";
 
 body {
-	overflow:scroll;
+	overflow-y:scroll;
 }
 
 #wrapper {
