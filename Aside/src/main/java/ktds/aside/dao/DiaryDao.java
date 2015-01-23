@@ -91,5 +91,17 @@ public class DiaryDao {
       sqlSession.close();
     }
   }
+  
+  public List<Diary> selectBookmarkList(int no) {
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    try {
+      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectBookmarkList", no);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    } finally {
+      sqlSession.close();
+    }
+  }
 
 }

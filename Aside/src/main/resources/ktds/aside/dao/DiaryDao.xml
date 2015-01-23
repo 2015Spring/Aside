@@ -48,5 +48,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    where diary_isopen=1
    order by diary_date desc
   </select>
+  
+  <select id="selectBookmarkList" parameterType="int" resultType="Diary">
+    select
+      diary_no, diary_date, diary_context, 
+      diary_isopen, diary_iscomment, diary_image
+    from diary
+    where diary_no in (select diary_no from bookmark where user_no = #{no})
+    order by diary_date desc;
+  </select>
 	
 </mapper>

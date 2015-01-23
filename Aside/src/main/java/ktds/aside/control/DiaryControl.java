@@ -55,4 +55,10 @@ public class DiaryControl {
     model.addAttribute("list", diaryDao.selectOtherList());
     return "../diary/list_othertimeline.jsp";
   }
+  
+  @RequestMapping("/list_bookmarktimeline")
+  public String listBookmarkTimeLine(HttpSession session, Model model) {
+    model.addAttribute("list", diaryDao.selectBookmarkList(((User)session.getAttribute("loginInfo")).getUser_no()));
+    return "../diary/list_bookmarktimeline.jsp";
+  }
 }
