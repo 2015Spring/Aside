@@ -18,10 +18,10 @@ public class BookmarkControl {
   @Autowired
   BookmarkDao bookmarkdao;
 
-  @RequestMapping("/list_bookmarktiimeline")
+  @RequestMapping("/list_bookmarktimeline")
   public String listBookmarkTimeLine(HttpSession session, Model model) {
     model.addAttribute("list", bookmarkdao.selectBookmarkList(((User)session.getAttribute("loginInfo")).getUser_no()));
-    return "../diary/list_mytimeline.jsp";
+    return "../bookmark/list_bookmarktimeline.jsp";
   }
   
 }
