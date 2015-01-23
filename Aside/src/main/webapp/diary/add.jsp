@@ -8,7 +8,8 @@
 	<title>:: Say in an aside ::</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/common.css">
-	<link rel="stylesheet" href="../css/common-header.css">
+	<!-- <link rel="stylesheet" href="../css/common-header.css"> -->
+	<link rel="stylesheet" href="../css/common-header2.css">
 	<script type="text/javascript" src="../js/jquery-latest.js"></script>
 	<script type="text/javascript" src="../js/common.js"></script>
 </head>
@@ -19,38 +20,40 @@
 				+ (calendar.get(Calendar.MONTH) + 1) + "/"
 				+ calendar.get(Calendar.DATE);
 %>
-<body >
-	<div id="diary_menu">
-		<div style="float:left">
-			<a href="list_timeline.jsp"><img src="../image/logo.png"></a>
-		</div>
-		<div style="float:right">
-			<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
-			<a href="#"><img src="../image/menus/menu_mylist.png"></a>
-			<a href="#"><img src="../image/menus/menu_bookmark.png"></a>
-			<a href="#"><img src="../image/menus/menu_setting.png"></a>
-		</div>
-	</div>
-
-	<hr>
-	
-	<form action="add.do" method="post" id="diary_form">
-		<div class="form-group">
-			<input type="text" name="diary_date" class="form-control input-lg" value=<%=date%>>
-		</div>
-		<div class="form-group">
-			<textarea name="diary_context" class="form-control"></textarea>
-		</div>
-		<div>
+<body>
+	<div id="wrapper">
+		<div id="diary_menu">
 			<div style="float:left">
-				<input type="checkbox" name="diary_isopen" value="1" id="image_radio_open"> 
-				<input type="checkbox" name="diary_iscomment" value="1" id="image_radio_comment"> 
+				<a href="list_timeline.jsp"><img src="../image/logo.png"></a>
 			</div>
 			<div style="float:right">
-				<input type="submit" value="" id="image_button_insert"/>
-				<input type="button" id="image_button_cancle"/>
+				<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
+				<input type="checkbox" name="whatlist" checked="checked" id="image_list"/> 
+				<a href="#"><img src="../image/menus/menu_bookmark.png"></a>
+				<a href="#"><img src="../image/menus/menu_setting.png"></a>
 			</div>
 		</div>
-	</form>
+	
+		<hr>
+		
+		<form action="add.do" method="post" id="diary_form">
+			<div class="form-group">
+				<input type="text" name="diary_date" class="form-control input-lg" value=<%=date%>>
+			</div>
+			<div class="form-group">
+				<textarea name="diary_context" class="form-control"></textarea>
+			</div>
+			<div>
+				<div style="float:left">
+					<input type="checkbox" name="diary_isopen" value="1" id="image_radio_open"> 
+					<input type="checkbox" name="diary_iscomment" value="1" id="image_radio_comment"> 
+				</div>
+				<div style="float:right">
+					<input type="submit" value="" id="image_button_insert"/>
+					<input type="button" id="image_button_cancle"/>
+				</div>
+			</div>
+		</form>
+	</div>
 </body>
 </html>
