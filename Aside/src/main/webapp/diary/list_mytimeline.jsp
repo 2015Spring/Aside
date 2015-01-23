@@ -38,7 +38,7 @@
 				<c:forEach var="diary" items="${list}">
 					<div id="article_list_repeat"><!-- 반복 -->
 						<a href="view.do?no=${diary.diary_no}">
-							<label><fmt:formatDate pattern="yyyy/MM/dd" value="${diary.diary_date}" /></label>
+							<label><fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}" /></label>
 						</a><br>
 						<pre>${diary.diary_context}</pre>
 					</div><!-- 반복끝 -->

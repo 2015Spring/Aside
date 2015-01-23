@@ -63,7 +63,7 @@
 	<hr>
 	
 	<div id="diary_view" style="background-color:lightgray">
-		<label id="diary_date"><fmt:formatDate pattern="yyyy/MM/dd" value="${diary.diary_date}" /></label><br>
+		<label id="diary_date"><fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}" /></label><br>
 		<p id="diary_context">${diary.diary_context}</p>
 		<div>
         <div style="float:left">
