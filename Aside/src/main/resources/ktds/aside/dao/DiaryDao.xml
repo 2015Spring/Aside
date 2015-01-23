@@ -30,5 +30,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    from diary
    where diary_no=#{no}
   </delete>
+  
+  <update id="update" parameterType="Diary">
+   update diary set diary_context = #{diary_context}
+   where diary_no=#{diary_no}
+  </update>
 	
 </mapper>

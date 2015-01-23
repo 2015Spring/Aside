@@ -67,4 +67,16 @@ public class DiaryDao {
     }
   }
 
+  public void update(Diary diary) {
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    try {
+      sqlSession.delete("ktds.aside.dao.DiaryDao.update", diary);
+      sqlSession.commit();
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      sqlSession.close();
+    }
+  }
+
 }

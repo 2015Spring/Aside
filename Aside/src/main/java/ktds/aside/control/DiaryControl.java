@@ -43,4 +43,10 @@ public class DiaryControl {
 	    diaryDao.delete(no);
         return "redirect:list_mytimeline.do";
     }
+	
+	@RequestMapping("/update")
+    public String update(Diary diary) {
+      diaryDao.update(diary);
+      return "redirect:list_mytimeline.do";
+    }
 }
