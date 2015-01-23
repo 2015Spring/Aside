@@ -22,11 +22,11 @@
 %>
 <body>
 	<div id="wrapper">
-		<div id="diary_menu">
+		<div id="header">
 			<div style="float:left">
 				<a href="list_mytimeline.do"><img src="../image/logo.png"></a>
 			</div>
-			<div style="float:right; height:55px;">
+			<div id="diary_menu">
 				<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
 				<!-- .do로 바꾸기 -->
 				<a href="list_othertimeline.jsp"><img src="../image/menus/menu_mylist.png"></a>
@@ -38,6 +38,7 @@
 	
 		<hr>
 		
+		<div id="article">
 		<form action="add.do" method="post" id="diary_form">
 			<div class="form-group">
 				<input type="text" name="diary_date" class="form-control input-lg" value=<%=date%>>
@@ -47,8 +48,8 @@
 			</div>
 			<div>
 				<div style="float:left">
-					<input type="checkbox" name="diary_isopen" value="1" id="image_radio_open"> 
-					<input type="checkbox" name="diary_iscomment" value="1" id="image_radio_comment"> 
+					<input type="checkbox" name="diary_isopen" id="image_radio_open"> 
+					<input type="checkbox" name="diary_iscomment" id="image_radio_comment"> 
 				</div>
 				<div style="float:right">
 					<input type="submit" value="" id="image_button_insert"/>
@@ -56,6 +57,7 @@
 				</div>
 			</div>
 		</form>
+		</div>
 	</div>
 </body>
 </html>

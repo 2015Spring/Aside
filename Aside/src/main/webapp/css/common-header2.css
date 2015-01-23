@@ -1,29 +1,62 @@
 @CHARSET "EUC-KR";
 
 #wrapper {
-	margin:3% 5% 1.5% 5%;
+	margin:2.5% 5% 1.5% 5%;
+}
+
+#header {
+	width:85%;
+	min-height:183px;
+	margin:auto;
+	padding:27px 0px 0px;
 }
 
 #diary_menu {
-	width:80%;
-	min-height:200px;
+	float:right;
+	padding:90px 0px 0px;
+}
+
+#article {
+	width:74%;
 	margin:auto;
-	padding:46px 0px 0px;
+	min-height:500px;
+}
+
+#article_list {
+	float:left;
+	width:90%;
+}
+
+#article_list_repeat{
+	background-color: #E0E0E0;
+	
+	padding:15px 15px 10px 15px;
+	margin-bottom:8px;
+	border-radius:5px;
 }
 
 #diary_form {
-	width: 820px; 
-	margin: auto;
+	width: 100%;
 	background-color: #E0E0E0;
 	border-radius: 5px;
 	padding: 30px;
 	display: inline-block;
 }
 
+#view_type {
+	float:right;
+	width:34px;
+}
+
+#view_type img {
+	padding:0px 0px 8px 2px;
+}
+
 hr {
 	width: 100%;
     border: 0;
     height: 1.5px;
+    margin:1.5%px 0px 1.5% 0px;
     background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(189,195,199,0.75), rgba(0,0,0,0)); 
     background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(189,195,199,0.75), rgba(0,0,0,0)); 
     background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(189,195,199,0.75), rgba(0,0,0,0)); 
