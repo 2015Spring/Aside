@@ -1,42 +1,7 @@
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    	<style>
-    		.arrow_box {
-				position: relative;
-				background: #ECECEC;
-				border: 3px solid #D2D7D3;
-				
-				padding: 40px;
-				width: 280px;
-				height: 100px;
-				border-radius: 6px; 
-			}
-			.arrow_box:after, .arrow_box:before {
-				bottom: 100%;
-				left: 50%;
-				border: solid transparent;
-				content: " ";
-				height: 0;
-				width: 0;
-				position: absolute;
-				pointer-events: none;
-			}
-			
-			.arrow_box:after {
-				border-color: rgba(236, 236, 236, 0);
-				border-bottom-color: #ECECEC;
-				border-width: 22px;
-				margin-left: -22px;
-			}
-			.arrow_box:before {
-				border-color: rgba(210, 215, 211, 0);
-				border-bottom-color: #D2D7D3;
-				border-width: 26px;
-				margin-left: -26px;
-			}
-    	</style>
+<link rel="stylesheet" href="../css/common-setting.css">
     
     
 		<div id="header">
@@ -53,7 +18,7 @@
 				  <img src="../image/menus/menu_mylist.png">
 				</a>
 				
-				<a href="../bookmark/list_bookmarktimeline.do">
+				<a href="list_bookmarktimeline.do">
 					<img src="../image/menus/menu_bookmark.png">
 				</a>
 				

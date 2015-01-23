@@ -1,0 +1,36 @@
+@CHARSET "EUC-KR";
+
+.arrow_box {
+	position: relative;
+	background: #ECECEC;
+	border: 3px solid #D2D7D3;
+	
+	padding: 40px;
+	width: 154px;
+	height: 75
+	px;
+	border-radius: 6px; 
+}
+.arrow_box:after, .arrow_box:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(236, 236, 236, 0);
+	border-bottom-color: #ECECEC;
+	border-width: 22px;
+	margin-left: -22px;
+}
+.arrow_box:before {
+	border-color: rgba(210, 215, 211, 0);
+	border-bottom-color: #D2D7D3;
+	border-width: 26px;
+	margin-left: -26px;
+}

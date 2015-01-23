@@ -4,12 +4,12 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<jsp:include page="../diary/head_settings.jsp"/>
+	<jsp:include page="head_settings.jsp"/>
 </head>
 
 <body>
 	<div id="wrapper">
-		<jsp:include page="../diary/header_other.jsp"/>
+		<jsp:include page="header_other.jsp"/>
 		
 		<div id="article">
 			<div id="article_list">

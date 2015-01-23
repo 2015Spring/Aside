@@ -12,7 +12,7 @@
 					<img src="../image/menus/menu_otherlist.png">
 				</a>
 				
-				<a href="../bookmark/list_bookmarktimeline.do">
+				<a href="list_bookmarktimeline.do">
 					<img src="../image/menus/menu_bookmark.png">
 				</a>
 				
