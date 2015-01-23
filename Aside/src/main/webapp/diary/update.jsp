@@ -15,12 +15,14 @@
 <body>
 	<div id="diary_menu">
 		<div style="float:left">
-			<a href="list_timeline.jsp"><img src="../image/logo.png"></a>
+			<a href="list_mytimeline.do"><img src="../image/logo.png"></a>
 		</div>
 		<div style="float:right">
 			<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
-			<a href="#"><img src="../image/menus/menu_mylist.png"></a>
-			<a href="#"><img src="../image/menus/menu_bookmark.png"></a>
+			<!-- .do로 바꾸기 -->
+			<a href="list_othertimeline.jsp"><img src="../image/menus/menu_mylist.png"></a>
+			<!-- .do로 바꾸기 -->
+			<a href="list_bookmarktimeline.jsp"><img src="../image/menus/menu_bookmark.png"></a>
 			<a href="#"><img src="../image/menus/menu_setting.png"></a>
 		</div>
 	</div>
