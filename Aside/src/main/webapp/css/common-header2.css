@@ -6,7 +6,9 @@
 
 #diary_menu {
 	width:80%;
-	min-height:300px;
+	min-height:200px;
+	margin:auto;
+	padding:46px 0px 0px;
 }
 
 #diary_form {
