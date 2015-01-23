@@ -82,13 +82,3 @@ hr {
 	background: url(../image/add,update_icon/add,update_cminactive.png) left
 		center no-repeat;
 }
-
-#image_list:checked {
-	background: url(../image/menus/menu_mylist.png) left
-		center no-repeat;
-}
-
-#image_list {
-	background: url(../image/menus/menu_otherlist.png) left
-		center no-repeat;
-}

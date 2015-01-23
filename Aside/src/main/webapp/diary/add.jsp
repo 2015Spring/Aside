@@ -26,10 +26,9 @@
 			<div style="float:left">
 				<a href="list_timeline.jsp"><img src="../image/logo.png"></a>
 			</div>
-			<div style="float:right; padding:80px 0px 0px;">
+			<div style="float:right; height:55px;">
 				<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
-				<input type="checkbox" name="whatlist"
-						checked="checked" id="image_list" style="margin:0px;"/> 
+				<a href="list_othertimeline.jsp"><img src="../image/menus/menu_mylist.png"></a>
 				<a href="#"><img src="../image/menus/menu_bookmark.png"></a>
 				<a href="#"><img src="../image/menus/menu_setting.png"></a>
 			</div>

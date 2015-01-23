@@ -20,7 +20,7 @@
 		</div>
 		<div style="float:right">
 			<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
-			<a href="#"><img src="../image/menus/menu_mylist.png"></a>
+			<a href="list_mytimeline.jsp"><img src="../image/menus/menu_otherlist.png"></a>
 			<a href="#"><img src="../image/menus/menu_bookmark.png"></a>
 			<a href="#"><img src="../image/menus/menu_setting.png"></a>
 		</div>
