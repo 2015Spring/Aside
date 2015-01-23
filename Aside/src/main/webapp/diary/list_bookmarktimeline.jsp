@@ -35,11 +35,14 @@
 		<div id="article">
 			<div id="article_list">
 				<c:forEach var="diary" items="${list}">
-					<div><!-- 반복 -->
-						<a href="view.do?no=${diary.diary_no}"><label>${diary.diary_date}</label></a><br>
-						<p>${diary.diary_context}</p>
+					<div id="article_list_repeat"><!-- 반복 -->
+						<a href="view.do?no=${diary.diary_no}">
+							<label>${diary.diary_date}</label>
+						</a><br>
+						<pre>${diary.diary_context}</pre>
 					</div><!-- 반복끝 -->
 				</c:forEach>
+				<br><br>
 			</div>
 			
 			<div id="view_type">

@@ -39,9 +39,10 @@
 						<a href="view.do?no=${diary.diary_no}">
 							<label>${diary.diary_date}</label>
 						</a><br>
-						<p>${diary.diary_context}</p>
+						<pre>${diary.diary_context}</pre>
 					</div><!-- 반복끝 -->
 				</c:forEach>
+				<br><br>
 			</div>
 			
 			<div id="view_type">

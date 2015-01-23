@@ -1,7 +1,7 @@
 @CHARSET "EUC-KR";
 
 #wrapper {
-	margin:2.5% 5% 1.5% 5%;
+	margin:2.5% 5% 2.5% 5%;
 }
 
 #header {
@@ -30,9 +30,18 @@
 #article_list_repeat{
 	background-color: #E0E0E0;
 	
-	padding:15px 15px 10px 15px;
-	margin-bottom:8px;
+	padding:15px 15px 3px 15px;
+	margin-bottom:10px;
 	border-radius:5px;
+}
+
+#article textarea {
+	min-height:400px;
+}
+
+#article pre {
+	border:0px #E0E0E0;
+	background-color: #E0E0E0;
 }
 
 #diary_form {
