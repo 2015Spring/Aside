@@ -22,12 +22,6 @@ public class DiaryControl {
 	public String add(Diary diary, HttpSession session) {
   	    User user = (User)session.getAttribute("loginInfo");
   	    diary.setUser_no(user.getUser_no());
-		System.out.println("다이어리 내용을 찍어보겠습니다");
-		System.out.println("diary_no : " + diary.getDiary_no());
-		System.out.println("date : " + diary.getDiary_date());
-		System.out.println("context : " + diary.getDiary_context());
-		System.out.println("open : " + diary.getDiary_isopen());
-		System.out.println("comment : " + diary.getDiary_iscomment());
 		diaryDao.insert(diary);
 		return "redirect:list_timeline.do";
 	}
@@ -40,9 +34,13 @@ public class DiaryControl {
 	
 	@RequestMapping("/view")
     public String view(int no, Model model) {
-	  System.out.println("nnnnoooooooooooo :" + no);
         model.addAttribute("diary", diaryDao.selectOne(no));
-        System.out.println(model);
         return "/diary/view.jsp";
+    }
+	
+	@RequestMapping("/delete")
+    public String delete(int no) {
+	    diaryDao.delete(no);
+        return "redirect:list_timeline.do";
     }
 }

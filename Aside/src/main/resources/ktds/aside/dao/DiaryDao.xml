@@ -24,5 +24,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    select diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
    diary_image from diary where diary_no = #{diary_no}
   </select>
+  
+  <delete id="delete" parameterType="int">
+   delete 
+   from diary
+   where diary_no=#{no}
+  </delete>
 	
 </mapper>

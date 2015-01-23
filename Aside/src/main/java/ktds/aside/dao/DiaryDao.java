@@ -20,7 +20,6 @@ public class DiaryDao {
 
   public void insert(Diary diary) {
     SqlSession sqlSession = sqlSessionFactory.openSession();
-    // System.out.println(diary.getDiary_context());
     try {
       sqlSession.insert("ktds.aside.dao.DiaryDao.insert", diary);
       sqlSession.commit();
@@ -51,6 +50,18 @@ public class DiaryDao {
     } catch (Exception e) {
       e.printStackTrace();
       return null;
+    } finally {
+      sqlSession.close();
+    }
+  }
+
+  public void delete(int no) {
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    try {
+      sqlSession.delete("ktds.aside.dao.DiaryDao.delete", no);
+      sqlSession.commit();
+    } catch (Exception e) {
+      e.printStackTrace();
     } finally {
       sqlSession.close();
     }
