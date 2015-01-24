@@ -11,7 +11,8 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class UserDao {
+public class UserDao
+ {
   
   @Autowired
   SqlSessionFactory sqlSessionFactory;
@@ -64,6 +65,21 @@ public class UserDao {
       } finally{
         sqlSession.close();
       }
+  }
+
+  public void delete(int user_no) {
+SqlSession sqlSession = sqlSessionFactory.openSession();
+    try
+    {
+      sqlSession.delete("ktds.aside.dao.UserDao.delete",user_no);
+      sqlSession.commit();
+    }catch(Exception e)
+    {
+      e.printStackTrace();
+    }finally
+    {
+      sqlSession.close();
+    }
   }
   
 }

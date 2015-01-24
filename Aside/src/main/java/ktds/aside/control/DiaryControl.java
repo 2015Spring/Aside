@@ -3,6 +3,7 @@ package ktds.aside.control;
 import javax.servlet.http.HttpSession;
 
 import ktds.aside.dao.DiaryDao;
+import ktds.aside.dao.UserDao;
 import ktds.aside.domain.Diary;
 import ktds.aside.domain.User;
 
@@ -17,6 +18,9 @@ public class DiaryControl {
 
   @Autowired
   DiaryDao diaryDao;
+  
+  @Autowired
+  UserDao userDao;
 
   @RequestMapping("/add")
   public String add(Diary diary, HttpSession session) {
@@ -60,5 +64,28 @@ public class DiaryControl {
   public String listBookmarkTimeLine(HttpSession session, Model model) {
     model.addAttribute("list", diaryDao.selectBookmarkList(((User)session.getAttribute("loginInfo")).getUser_no()));
     return "../diary/list_bookmarktimeline.jsp";
+  }
+  
+  @RequestMapping("/logout")
+  public String logout(HttpSession session)
+  {
+    session.invalidate();
+    return "redirect:../";
+  }
+  
+  @RequestMapping("/signout")
+  public String signout(HttpSession session)
+  {
+    userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
+    session.invalidate();
+    return "redirect:../";
+  }
+  
+  @RequestMapping("/setpassword")
+  public String setpassword(HttpSession session)
+  {
+    userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
+    session.invalidate();
+    return "redirect:../";
   }
 }
