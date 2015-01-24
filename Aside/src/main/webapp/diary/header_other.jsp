@@ -23,14 +23,14 @@
 				</a>
 				
 				<img src="../image/menus/menu_setting.png"
-						onclick="settingLayer()"/>
+						onclick="settingLayer()" style="cursor:pointer"/>
 						
 				<div id="setLayer" style="display:none;" class="pop-layer">
 					<div class="arrow_box">
 						<ul>
-							<li><a href="">로그아웃</a></li>
-							<li><a href="">비밀번호 변경</a></li>
-							<li><a href="">탈퇴하기</a></li>
+							<li><a href="logout.do">로그아웃</a></li>
+							<li><a href="../user/set_password.html">비밀번호 변경</a></li>
+							<li><a href="signout.do">탈퇴하기</a></li>
 						</ul>
 					</div>
 				</div>
