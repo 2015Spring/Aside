@@ -19,11 +19,10 @@ public class UserControl {
     UserDao userDao;
     
     @RequestMapping("/signin")
-    public String signUp(User user){ 
-        
-      userDao.insert(user);
-        
-      return "redirect:login.html"; 
+    public String signUp(User user){
+      System.out.println(user.getUser_password());
+	  userDao.insert(user);
+	  return "redirect:login.html"; 
     }
     
     @RequestMapping(value="/login",method=RequestMethod.POST)
