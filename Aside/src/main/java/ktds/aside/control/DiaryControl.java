@@ -25,6 +25,7 @@ public class DiaryControl {
   @RequestMapping("/add")
   public String add(Diary diary, HttpSession session) {
     User user = (User) session.getAttribute("loginInfo");
+    System.out.println(user.getUser_no());
     diary.setUser_no(user.getUser_no());
     diaryDao.insert(diary);
     return "redirect:list_mytimeline.do";
@@ -32,14 +33,14 @@ public class DiaryControl {
 
   @RequestMapping("/list_mytimeline")
   public String listTimeline(HttpSession session, Model model) {
-    model.addAttribute("list", diaryDao.selectMyList(((User)session.getAttribute("loginInfo")).getUser_no()));
-    return "../diary/list_mytimeline.jsp";
+      model.addAttribute("list", diaryDao.selectMyList(((User)session.getAttribute("loginInfo")).getUser_no()));
+      return "../diary/list_mytimeline.jsp";
   }
 
   @RequestMapping("/view")
-  public String view(int no, Model model) {
-    model.addAttribute("diary", diaryDao.selectOne(no));
-    return "/diary/view.jsp";
+  public String view(int no, Model model, HttpSession session) {
+      model.addAttribute("diary", diaryDao.selectOne(no));
+      return "/diary/view.jsp";
   }
 
   @RequestMapping("/delete")
@@ -76,8 +77,8 @@ public class DiaryControl {
   @RequestMapping("/signout")
   public String signout(HttpSession session)
   {
-    userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
     session.invalidate();
+    userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
     return "redirect:../";
   }
   

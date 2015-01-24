@@ -9,8 +9,8 @@
 
 <%
 	Calendar calendar = Calendar.getInstance();
-	String date = calendar.get(Calendar.YEAR) + "-"
-				+ (calendar.get(Calendar.MONTH) + 1) + "-"
+	String date = calendar.get(Calendar.YEAR) + "/"
+				+ (calendar.get(Calendar.MONTH) + 1) + "/"
 				+ calendar.get(Calendar.DATE);
 %>
 <body>

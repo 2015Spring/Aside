@@ -17,14 +17,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="selectMyList" parameterType="int" resultType="Diary">
 	 select 
-		 diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
+		 user_no, diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
 		 diary_image from diary  
 	 where user_no = #{no}
 	 order by diary_date desc
 	</select>
 	
 	<select id="selectOne" parameterType="int" resultType="Diary">
-   select diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
+   select user_no, diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
    diary_image from diary where diary_no = #{diary_no}
   </select>
   
@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   </update>
   
   <select id="selectOtherList" resultType="Diary">
-   select diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
+   select user_no, diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
    diary_image from diary
    where diary_isopen=1
    order by diary_date desc
@@ -51,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
   <select id="selectBookmarkList" parameterType="int" resultType="Diary">
     select
-      diary_no, diary_date, diary_context, 
+      user_no, diary_no, diary_date, diary_context, 
       diary_isopen, diary_iscomment, diary_image
     from diary
     where diary_no in (select diary_no from bookmark where user_no = #{no})
