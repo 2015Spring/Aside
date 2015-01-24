@@ -36,10 +36,26 @@ body {
 }
 
 #list_title {
+	width:100%;
 	font-size:16pt;
 	font-weight:bold;
 	color:#595959;
 	text-decoration:none;
+	line-height:25pt;
+	cursor:pointer;
+}
+
+#article_list_repeat_div {
+	width:100%;
+	background-color: #E2E2E2;
+	padding:15px 15px 3px 18px;
+	margin-bottom:10px;
+	border-radius:5px;
+}
+
+#article_list_repeat{
+	width:95%;
+	cursor:pointer;
 }
 
 #article_list_repeat a {
@@ -54,13 +70,6 @@ body {
 	height:100%;
 }
 
-#article_list_repeat{
-	background-color: #E2E2E2;
-	padding:15px 15px 3px 15px;
-	margin-bottom:10px;
-	border-radius:5px;
-	cursor:pointer;
-}
 
 #article textarea {
 	min-height:400px;
@@ -174,4 +183,22 @@ hr {
 #image_radio_comment {
 	background: url(../image/add,update_icon/add,update_cminactive.png) left
 		center no-repeat;
+}
+
+#bookmark {
+	float:right;
+	margin-top:-5px;
+}
+
+#diary_bookmark {
+	border: none;
+	width: 28px;
+	height: 28px;
+	background-size: 28px;
+	-webkit-appearance: none;
+	background: url(../image/bookmark_inactive.png) left center no-repeat;
+}
+
+#diary_bookmark:checked {
+	background: url(../image/bookmark_active.png) left center no-repeat;
 }

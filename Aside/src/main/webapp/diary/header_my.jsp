@@ -66,18 +66,9 @@
 			</div>
 			<div id="diary_menu">
 			
-				<a href="add.jsp">
-					<img src="../image/menus/menu_add.png">
-				</a>
-				
-				<a href="list_mytimeline.do">
-					<img src="../image/menus/menu_otherlist.png">
-				</a>
-				
-				<a href="list_bookmarktimeline.do">
-					<img src="../image/menus/menu_bookmark.png">
-				</a>
-				
+				<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
+				<a href="list_mytimeline.do"><img src="../image/menus/menu_otherlist.png"></a>
+				<a href="list_bookmarktimeline.do"><img src="../image/menus/menu_bookmark.png"></a>
 				<img src="../image/menus/menu_setting.png"
 						onclick="settingLayer()" style="cursor:pointer"/>
 						

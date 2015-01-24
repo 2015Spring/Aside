@@ -65,9 +65,13 @@
 						onclick="return false">
 				</div>
 				<div style="float: right;  margin:5px 0px 0px;">
-					<input type="button" id="image_button_update"/>
-					<input type="button" id="image_button_delete"
-						onclick="location.href='delete.do?no=${diary.diary_no}';"/>
+					<c:choose>
+					<c:when test="${diary.user_no == loginInfo.user_no}">
+						<input type="button" id="image_button_update"/>
+						<input type="button" id="image_button_delete"
+							onclick="location.href='delete.do?no=${diary.diary_no}';"/>
+					</c:when>
+				</c:choose>
 				</div>
 			</div>
 		</div>

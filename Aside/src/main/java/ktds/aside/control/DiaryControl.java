@@ -40,6 +40,7 @@ public class DiaryControl {
   @RequestMapping("/view")
   public String view(int no, Model model, HttpSession session) {
       model.addAttribute("diary", diaryDao.selectOne(no));
+      model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
       return "/diary/view.jsp";
   }
 
@@ -56,8 +57,9 @@ public class DiaryControl {
   }
   
   @RequestMapping("/list_othertimeline")
-  public String listOtherList(Model model) {
+  public String listOtherList(Model model, HttpSession session) {
     model.addAttribute("list", diaryDao.selectOtherList());
+    model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
     return "../diary/list_othertimeline.jsp";
   }
   

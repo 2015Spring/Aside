@@ -15,13 +15,16 @@
 		<div id="article">
 			<div id="article_list">
 				<c:forEach var="diary" items="${list}">
-					<div id="article_list_repeat" onclick="location.href='view.do?no=${diary.diary_no}'"><!-- 반복 -->
-						<label id="list_title">
-							<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}" />
-						</label>
-						<br>
-						<pre>${diary.diary_context}</pre>
-					</div><!-- 반복끝 -->
+					<div id="article_list_repeat_div">
+						<div id="article_list_repeat" onclick="location.href='view.do?no=${diary.diary_no}'"><!-- 반복 -->
+							<div id="list_title">
+								<label>
+									<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}" />
+								</label>
+							</div>
+							<pre>${diary.diary_context}</pre>
+						</div><!-- 반복끝 -->
+					</div>
 				</c:forEach>
 				<br><br>
 			</div>
