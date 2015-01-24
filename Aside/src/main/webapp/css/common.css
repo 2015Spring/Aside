@@ -80,7 +80,7 @@ body {
 }
 
 #diary_date, #diary_context:read-only {
-	background-color:white;
+	background-color:none;
 	cursor:default;
 }
 

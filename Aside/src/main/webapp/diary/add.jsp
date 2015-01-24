@@ -20,7 +20,7 @@
 		<div id="article">
 		<form action="add.do" method="post" id="diary_form">
 			<div class="form-group">
-				<input type="text" name="diary_date" class="form-control input-lg" value=<%=date%>>
+				<input type="date" name="diary_date" class="form-control input-lg" value=<%=date%>>
 			</div>
 			<div class="form-group">
 				<textarea name="diary_context" class="form-control"></textarea>

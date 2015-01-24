@@ -76,7 +76,7 @@
 		<form action="update.do" method="post" id="diary_form">
 			<input type="hidden" name="diary_no" value="${diary.diary_no}">
 			<div class="form-group">
-				<input type="text" name="diary_date" id="diary_date" readonly
+				<input type="date" name="diary_date" id="diary_date" readonly
 					class="form-control input-lg">
 			</div>
 			<div class="form-group">
