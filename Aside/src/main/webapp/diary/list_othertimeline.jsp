@@ -1,25 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt_rt" %> 
 <!DOCTYPE HTML>
 <html>
 <head>
 	<jsp:include page="head_settings.jsp"/>
 </head>
 
-<body>
+<body>	
 	<div id="wrapper">
 		<jsp:include page="header_my.jsp"/>
 		
 		<div id="article">
 			<div id="article_list">
 				<c:forEach var="diary" items="${list}">
+					<a href="view.do?no=${diary.diary_no}">
 					<div id="article_list_repeat"><!-- 반복 -->
-						<a href="view.do?no=${diary.diary_no}" id="list_title">
-							${diary.diary_date}
-						</a><br>
+						<span id="list_title">
+							<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}" />
+						</span>
+						<br>
 						<pre>${diary.diary_context}</pre>
 					</div><!-- 반복끝 -->
+					</a>
 				</c:forEach>
 				<br><br>
 			</div>
