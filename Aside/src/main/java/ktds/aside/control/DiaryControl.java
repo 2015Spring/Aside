@@ -77,8 +77,8 @@ public class DiaryControl {
   @RequestMapping("/signout")
   public String signout(HttpSession session)
   {
-    session.invalidate();
     userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
+    session.invalidate();
     return "redirect:../";
   }
   
