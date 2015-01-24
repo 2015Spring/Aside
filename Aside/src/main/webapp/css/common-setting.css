@@ -1,16 +1,17 @@
-@CHARSET "EUC-KR";
+@CHARSET "UTF-8";
 
+/* 말풍선 */
 .arrow_box {
 	position: relative;
 	background: #ECECEC;
 	border: 3px solid #D2D7D3;
 	
-	padding: 40px;
-	width: 154px;
-	height: 75
-	px;
-	border-radius: 6px; 
+	padding:11.5px 4px 6px 4px;
+	width: 150px;
+	height: 75px;
+	border-radius: 4px; 
 }
+
 .arrow_box:after, .arrow_box:before {
 	bottom: 100%;
 	left: 50%;
@@ -23,14 +24,60 @@
 }
 
 .arrow_box:after {
-	border-color: rgba(236, 236, 236, 0);
+	border-color: rgba(136, 183, 213, 0);
 	border-bottom-color: #ECECEC;
-	border-width: 22px;
-	margin-left: -22px;
+	border-width: 14px;
+	margin-left: -14px;
 }
 .arrow_box:before {
-	border-color: rgba(210, 215, 211, 0);
+	border-color: rgba(194, 225, 245, 0);
 	border-bottom-color: #D2D7D3;
-	border-width: 26px;
-	margin-left: -26px;
+	border-width: 18px;
+	margin-left: -18px;
+}
+
+.arrow_box ul {
+	padding:0px 0px 0px 15px;
+	margin:0px;
+	font-size:9.3pt;
+	list-style:none;
+}
+
+li:first-child:before {
+	content: "●";
+    color:#65C6BB;
+    padding-right:8px;
+    font-size:12pt;
+    line-height:10pt;
+}
+
+li:nth-child(2):before {
+    content: "●";
+    color:#E74C3C;
+    padding-right:8px;
+    font-size:12pt;
+    line-height:10pt;
+}
+
+li:last-child:before {
+    content: "●";
+    color:#3FC380;
+    padding-right:8px;
+    font-size:12pt;
+    line-height:10pt;
+}
+
+/* 고정 팝업 레이어 */
+.pop-layer {
+	display:none;
+	position: absolute;
+	width: 150px;
+	height:75px;  
+	background-color:#00000000;
+	z-index:10;
+	margin:18px 0px 0px 130px;
+}	
+
+.pop-layer .pop-container {
+	padding: 20px 25px;
 }
