@@ -59,6 +59,7 @@ body {
 	padding:15px 15px 3px 15px;
 	margin-bottom:10px;
 	border-radius:5px;
+	cursor:pointer;
 }
 
 #article textarea {
@@ -68,7 +69,7 @@ body {
 
 #article pre {
 	border:0px #E0E0E0;
-	background-color: #E0E0E0;
+	background-color:none;
 }
 
 #article_buttons {
