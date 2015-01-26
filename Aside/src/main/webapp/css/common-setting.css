@@ -123,6 +123,7 @@ li:last-child:before {
 	border: 3px solid #777777;
 	z-index: 10;
 	padding: 20px 20px 20px 25px;
+	opacity: 0.9;
 }
 
 .cancle {
