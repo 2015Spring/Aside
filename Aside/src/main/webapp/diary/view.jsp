@@ -8,8 +8,6 @@
   <jsp:include page="head_settings.jsp"/>
   
   <script>
-  var onoff = false;
-  
    $(window).load(function() {
        $('#diary_form').css('display', 'none');  
        $('#diary_view #image_radio_open').attr('checked', getBoolean($('#diary_view #image_radio_open_label').html()));
@@ -37,22 +35,12 @@
      else return false;
    }
    
-   function commentView(){
-     
-     if(onoff==false){
-       onoff=true;
-       document.getElementById("comment").style.display = "block";
-     }else{
-       onoff=false;
-       document.getElementById("comment").style.display = "none";
-     }
-   }
-   
    var xmlReq;
    function createAjax() {
      xmlReq = new XMLHttpRequest();
    }
    function comment() {
+	   
        var diary_no = document.getElementById("diary_no");
        var comment_context = document.getElementById("comment_context");
        
@@ -63,7 +51,22 @@
        xmlReq.send(null);
        
        comment_context.value = "";
+       
+       $("#comment").load("./comment.do?no=${diary.diary_no}");
    }
+   
+   var onoff = false;
+
+   function commentView(){
+       
+    if(onoff==false){
+      onoff=true;
+      document.getElementById("comment").style.display = "block";
+      }else{
+        onoff=false;
+        document.getElementById("comment").style.display = "none";
+      }
+    }
   </script>
 </head>
 
@@ -180,7 +183,7 @@
         </c:forEach>
       </div>
     </div>
-  
+    
     <!-- article -->
     </div>
   <!-- wrapper -->

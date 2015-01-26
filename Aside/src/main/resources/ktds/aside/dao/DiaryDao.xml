@@ -60,5 +60,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where diary_no in (select diary_no from bookmark where user_no = #{no})
 		order by diary_date desc;
 	</select>
+	
+	<select id="selectComment" parameterType="int" resultType="Comment">
+	 SELECT COMMENT_CONTEXT
+	   FROM comment
+	   WHERE diary_no=#{diary_no}
+	</select>
 
 </mapper>

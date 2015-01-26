@@ -38,9 +38,17 @@ public class DiaryControl {
 
   @RequestMapping("/view")
   public String view(int no, Model model, HttpSession session) {
+      model.addAttribute("list", diaryDao.selectComment(no));
       model.addAttribute("diary", diaryDao.selectOne(no));
       model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
       return "/diary/view.jsp";
+  }
+  
+  @RequestMapping("/comment")
+  public String comment(int no, Model model) {
+      model.addAttribute("list", diaryDao.selectComment(no));
+      model.addAttribute("diary", diaryDao.selectOne(no));
+      return "/diary/comment.jsp";
   }
 
   @RequestMapping("/delete")
