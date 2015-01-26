@@ -8,6 +8,8 @@
 	<jsp:include page="head_settings.jsp"/>
 	
 	<script>
+	var onoff = false;
+	
 	 $(window).load(function() {
 	     $('#diary_form').css('display', 'none');  
 	     $('#diary_view #image_radio_open').attr('checked', getBoolean($('#diary_view #image_radio_open_label').html()));
@@ -33,6 +35,17 @@
 	 function getBoolean(str) {
 		 if(str.trim() == "true") return true;
 		 else return false;
+	 }
+	 
+	 function commentView(){
+		 
+		 if(onoff==false){
+			 onoff=true;
+			 document.getElementById("comment").style.display = "block";
+		 }else{
+			 onoff=false;
+			 document.getElementById("comment").style.display = "none";
+		 }
 	 }
 	</script>
 </head>
@@ -64,7 +77,7 @@
 						name="diary_iscomment" id="image_radio_comment"
 						onclick="return false">
 				</div>
-				<div style="float: right;  margin:5px 0px 0px;">
+				<div style="margin:5px 0px 0px;">
 					<c:choose>
 					<c:when test="${diary.user_no == loginInfo.user_no}">
 						<input type="button" id="image_button_update"/>
@@ -72,6 +85,9 @@
 							onclick="location.href='delete.do?no=${diary.diary_no}';"/>
 					</c:when>
 				</c:choose>
+				</div>
+				<div style="float: right;" onclick="commentView()">
+					<img src="../image/view_icon/view_comment.png" id="comment_btn"/>
 				</div>
 			</div>
 		</div>
@@ -100,8 +116,30 @@
 				</div>
 			</div>
 		</form>
-		</div>
 		
+		
+		<!-- 댓글창 -->
+		<div style="display:none;" id="comment">
+			<br><br>
+			<!-- 엔터치면 등록되도록! -->
+			<form action="comment.do" method="post" id="diary_form">
+				<input type="hidden" name="diary_no" value="${diary.diary_no}">
+				<div class="form-group">
+					<textarea name="comment_context" id="comment_context"
+						class="form-control"></textarea>
+				</div>
+			</form>
+			
+			<div style="margin:5px 0px 0px;">
+				<c:forEach var="comment" items="${list}">
+					<div id="comment_list_repeat"><!-- 반복 -->
+						<pre>${comment.comment_context}</pre>
+					</div><!-- 반복끝 -->
+				</c:forEach>
+			</div>
+		</div>
+	
+	<!-- article -->
 	</div>
 </body>
 </html>

@@ -71,7 +71,7 @@ body {
 }
 
 
-#article textarea {
+#article #diary_context {
 	min-height:400px;
 	resize:none;
 }
@@ -83,7 +83,7 @@ body {
 
 #article_buttons {
 	display:inline-block;
-	width:100%;
+	width:20%;
 	height:100%
 }
 
@@ -201,4 +201,16 @@ hr {
 
 #diary_bookmark:checked {
 	background: url(../image/bookmark_active.png) left center no-repeat;
+}
+
+#comment_context {
+	min-height:5px;
+	resize:none;
+}
+
+#comment_btn {
+	-webkit-appearance:none;
+	border:none;
+	padding-top:8px;
+	cursor:pointer;
 }
