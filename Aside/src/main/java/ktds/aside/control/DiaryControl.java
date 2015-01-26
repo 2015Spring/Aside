@@ -50,6 +50,18 @@ public class DiaryControl {
       model.addAttribute("diary", diaryDao.selectOne(no));
       return "/diary/comment.jsp";
   }
+  
+  @RequestMapping("/deleteComment")
+  public String deleteComment(int no, Model model) {
+      model.addAttribute("list", diaryDao.deleteComment(no));
+      return "/diary/comment.jsp";
+  }
+  
+  @RequestMapping("/updateComment")
+  public String updateComment(int no, Model model) {
+      model.addAttribute("list", diaryDao.updateComment(no));
+      return "/diary/comment.jsp";
+  }
 
   @RequestMapping("/delete")
   public String delete(int no) {
