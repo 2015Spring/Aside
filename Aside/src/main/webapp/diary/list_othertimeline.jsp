@@ -6,6 +6,22 @@
 <html>
 <head>
 	<jsp:include page="head_settings.jsp"/>
+<script>
+var xmlReq;
+function createAjax() {
+	xmlReq = new XMLHttpRequest();
+}
+$(function() {
+	$('#diary_bookmark').click(function() {
+      createAjax();
+      xmlReq.onreadystatechange = callBack;
+      xmlReq.open("POST", "asyn_bookmark.jsp?diary_no="+$('#diary_no').val()+"&bookmark="+$(this).is(':checked'), true);
+      xmlReq.send(null);
+  	});
+	function callBack() {
+	}
+});
+</script>
 </head>
 
 <body>	
@@ -19,6 +35,7 @@
 						<label id="bookmark">
 						<c:choose>
 							<c:when test="${diary.user_no != loginInfo.user_no}">
+								<input type="hidden" id="diary_no" value="${diary.diary_no}">
 								<input type="checkbox" name="diary_bookmark" id="diary_bookmark">
 							</c:when>
 						</c:choose>
