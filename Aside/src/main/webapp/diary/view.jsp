@@ -27,6 +27,20 @@
              $('#diary_view').css('display', 'block');
              $('#diary_form').css('display', 'none');
            });
+           
+           $('#comment_update_btn').click(function() {
+        	   $('#comment_context_pre').css("display", "none");
+        	   $('#comment_context_update_div').css("display", "block");
+           });
+           
+           $('#comment_context_update_div #cancle_btn').click(function() {
+        	   $('#comment_context_pre').css("display", "block");
+        	   $('#comment_context_update_div').css("display", "none");
+           });
+           
+           $('#comment_context_update_div #udpate_btn').click(function() {
+        	   // 업데이트 코드 할 부분
+           });
        });
    });
    
@@ -190,15 +204,26 @@
       <div style="margin:5px 0px 0px;">
         <c:forEach var="comment" items="${list}">
           <div id="comment_list_repeat"><!-- 반복 -->
-            <pre>${comment.comment_context}</pre>
-            <c:if test="${loginInfo.user_no == comment.user_no}">
-            <button type="button" onclick="deleteComment(${comment.comment_no})" class="btn btn-default btn-lg">
-           	 <span class="glyphicon glyphicon-remove"></span>
-            </button>
-            <button type="button" onclick="updateComment(${comment.comment_no})" class="btn btn-default btn-lg">
-           	 <span class="glyphicon glyphicon-pencil"></span>
-            </button>
-            </c:if>
+          	<div id="comment_context_pre">
+	            <pre>${comment.comment_context}</pre>
+	            <c:if test="${loginInfo.user_no == comment.user_no}">
+		            <button type="button" onclick="deleteComment(${comment.comment_no})" class="btn btn-default btn-lg">
+		           	 <span class="glyphicon glyphicon-remove"></span>
+		            </button>
+		            <button type="button" id="comment_update_btn" class="btn btn-default btn-lg">
+		           	 <span class="glyphicon glyphicon-pencil"></span>
+		            </button>
+	            </c:if>
+          	</div>
+            <div id="comment_context_update_div" style="display:none">
+            	<textarea id="comment_context_textarea">${comment.comment_context}</textarea>
+            	<button type="button" id="update_btn" class="btn btn-default btn-lg">
+	           	 <span class="glyphicon glyphicon-pencil"></span>
+	            </button>
+            	<button type="button" id="cancle_btn" class="btn btn-default btn-lg">
+	           	 <span class="glyphicon glyphicon-remove"></span>
+	            </button>
+            </div>
           </div><!-- 반복끝 -->
         </c:forEach>
       </div>
