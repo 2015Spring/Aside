@@ -7,6 +7,9 @@
 	int diary_no = new Integer(request.getParameter("diary_no"));
 	boolean bookmark = new Boolean(request.getParameter("bookmark"));
 	User user = (User) session.getAttribute("loginInfo");
+	
+	System.out.println(diary_no);
+	System.out.println(user.getUser_no());
  
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection con = DriverManager.getConnection(
@@ -16,6 +19,6 @@
 	if(bookmark == true) { // insert
 		stmt.executeUpdate("insert into bookmark (user_no, diary_no) values("+ user.getUser_no() +","+diary_no+")");
 	} else { // delete
-		stmt.executeUpdate("delete from bookmark where user_no="+ user.getUser_no() +"and diary_no="+diary_no);
+		stmt.executeUpdate("delete from bookmark where user_no="+ user.getUser_no() +" and diary_no="+diary_no);
 	}
 %>
