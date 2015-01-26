@@ -18,7 +18,6 @@ function bookmark(ctrl) {
 }
 </script>
 </head>
-
 <body>	
 	<div id="wrapper">
 		<jsp:include page="header_my.jsp"/>
