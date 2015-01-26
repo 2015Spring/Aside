@@ -25,7 +25,6 @@ public class DiaryControl {
   @RequestMapping("/add")
   public String add(Diary diary, HttpSession session) {
     User user = (User) session.getAttribute("loginInfo");
-    System.out.println(user.getUser_no());
     diary.setUser_no(user.getUser_no());
     diaryDao.insert(diary);
     return "redirect:list_mytimeline.do";

@@ -8,9 +8,6 @@
 	boolean bookmark = new Boolean(request.getParameter("bookmark"));
 	User user = (User) session.getAttribute("loginInfo");
 	
-	System.out.println(diary_no);
-	System.out.println(user.getUser_no());
- 
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection con = DriverManager.getConnection(
 			"jdbc:mysql://localhost:3306/ktds", "root", "1234");

@@ -23,7 +23,7 @@
 				<input type="text" name="diary_date" class="form-control input-lg" value="<%=date%>">
 			</div>
 			<div class="form-group">
-				<textarea id="diary_context" class="form-control"></textarea>
+				<textarea id="diary_context" name="diary_context" class="form-control"></textarea>
 			</div>
 			<div>
 				<div style="float:left">

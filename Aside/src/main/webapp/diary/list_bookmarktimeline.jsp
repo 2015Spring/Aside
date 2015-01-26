@@ -11,16 +11,11 @@ var xmlReq;
 function createAjax() {
 	xmlReq = new XMLHttpRequest();
 }
-$(function() {
-	$('#diary_bookmark').click(function() {
-      createAjax();
-      xmlReq.onreadystatechange = callBack;
-      xmlReq.open("POST", "asyn_bookmark.jsp?diary_no="+$('#diary_no').val()+"&bookmark="+$(this).is(':checked'), true);
-      xmlReq.send(null);
-  	});
-	function callBack() {
-	}
-});
+function bookmark(ctrl) {
+	createAjax();
+	xmlReq.open("POST", "asyn_bookmark.jsp?diary_no="+ctrl.value+"&bookmark="+ctrl.checked, true);
+	xmlReq.send(null);
+}
 </script>
 </head>
 
@@ -36,7 +31,7 @@ $(function() {
 						<c:choose>
 							<c:when test="${diary.user_no != loginInfo.user_no}">
 								<input type="hidden" id="diary_no" value="${diary.diary_no}">
-								<input type="checkbox" name="diary_bookmark" checked="checked" id="diary_bookmark">
+								<input type="checkbox" name="diary_bookmark" id="diary_bookmark" value="${diary.diary_no}" onclick="bookmark(this)" checked="checked">
 							</c:when>
 						</c:choose>
 						</label>

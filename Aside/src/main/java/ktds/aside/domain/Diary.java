@@ -13,14 +13,6 @@ public class Diary {
 	Date diary_date;
 	int is_bookmark;
 
-	public int getIs_bookmark() {
-		return is_bookmark;
-	}
-
-	public void setIs_bookmark(int is_bookmark) {
-		this.is_bookmark = is_bookmark;
-	}
-
 	public int getDiary_no() {
 		return diary_no;
 	}
@@ -45,7 +37,7 @@ public class Diary {
 		this.diary_context = diary_context;
 	}
 
-	public boolean getDiary_isopen() {
+	public boolean isDiary_isopen() {
 		return diary_isopen;
 	}
 
@@ -53,7 +45,7 @@ public class Diary {
 		this.diary_isopen = diary_isopen;
 	}
 
-	public boolean getDiary_iscomment() {
+	public boolean isDiary_iscomment() {
 		return diary_iscomment;
 	}
 
@@ -76,4 +68,13 @@ public class Diary {
 	public void setDiary_date(Date diary_date) {
 		this.diary_date = diary_date;
 	}
+
+	public int getIs_bookmark() {
+		return is_bookmark;
+	}
+
+	public void setIs_bookmark(int is_bookmark) {
+		this.is_bookmark = is_bookmark;
+	}
+
 }
