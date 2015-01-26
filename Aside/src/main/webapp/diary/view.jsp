@@ -53,8 +53,6 @@
      xmlReq = new XMLHttpRequest();
    }
    function comment() {
-     if(event.keyCode == 13)
-     {
        var diary_no = document.getElementById("diary_no");
        var comment_context = document.getElementById("comment_context");
        
@@ -65,7 +63,6 @@
        xmlReq.send(null);
        
        comment_context.value = "";
-     }
    }
   </script>
 </head>
@@ -168,7 +165,10 @@
         <input type="hidden" name="diary_no" value="${diary.diary_no}" id ="diary_no">
         <div class="form-group">
           <textarea name="comment_context" id="comment_context"
-            class="form-control" onKeyDown="comment()"></textarea>
+            class="form-control" 
+            onKeyDown="if(event.keyCode == 13){ comment(); return false;}" 
+            onKeyUp="if(event.keyCode == 13) return false;" 
+            onKeyPress="if(event.keyCode == 13) return false;"></textarea>
         </div>
       </form>
       
