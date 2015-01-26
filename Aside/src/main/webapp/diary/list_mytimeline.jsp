@@ -16,8 +16,14 @@
 			<div id="article_list">
 				<c:choose>
 				<c:when test="${list.equals([])}">
-					<!-- 으니야 여기다 새 글을 등록해보세요 이미지를 넣으렴!! -->
-					글이없쪙!!!
+					<div id="empty_list">
+						<a href="add.jsp">
+							<img src="../image/menus/menu_add.png" style="float:left; margin:3px 20px 0px;"/>
+							버튼을 통해 첫 일기를 작성 해 보세요!<br> 
+							오늘 하루동안 느꼈던 점, 즐거웠던 일을 작성하고 확인버튼을 누르세요.<br>
+							글을 작성할 때에는 공유/비공유 버튼과 댓글 허용/비허용을 선택하는 것을 잊지마세요!
+						</a>
+					</div>
 				</c:when>
 				<c:otherwise>
 					<c:forEach var="diary" items="${list}">

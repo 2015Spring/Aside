@@ -27,8 +27,14 @@ function bookmark(ctrl) {
 			<div id="article_list">
 				<c:choose>
 				<c:when test="${list.equals([])}">
-					<!-- 으니야 여기다 북마크를 등록해보세요 이미지를 넣으렴!! -->
-					북마크가없쪙!!!
+					<div id="empty_list">
+						<a href="list_othertimeline.do">
+							<img src="../image/menus/menu_otherlist.png" style="float:left; margin:3px 20px 20px;"/>
+							공유 된 일기를 보고, 마음에 드는 일기를 즐겨찾기 해 보세요!<br><br>
+							<img src="../image/bookmark_inactive.png"/>&nbsp;&nbsp;버튼을 눌러 즐겨찾기를 설정하고<br>
+							<img src="../image/bookmark_active.png"/>&nbsp;&nbsp;버튼을 눌러 즐겨찾기를 해제할 수 있습니다.<br>
+						</a>
+					</div>
 				</c:when>
 				<c:otherwise>
 					<c:forEach var="diary" items="${list}">

@@ -22,7 +22,7 @@
 								</button></a>
 							<a href="signout.do"><button class="btn btn-info btn-lg" 
 										style="width:154px; font-size:12pt; float:right;">
-									네, 안녕히계세요!
+									네, 잘있어요!
 								</button></a>
 						</div>
 					</div>

@@ -225,3 +225,17 @@ hr {
 	padding-top:12px;
 	cursor:pointer;
 }
+
+#empty_list {
+	border:4px dotted #8E8E8E;
+	border-radius:5px;
+	padding:30px;
+	margin-top:25px;
+	background-color:#EAEAEA;
+}
+
+#empty_list a {
+	text-decoration:none;
+	color:#595959;
+	opacity:1;
+}
