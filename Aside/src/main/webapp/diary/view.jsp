@@ -69,26 +69,29 @@
 			</div>
 			
 			<div id="article_buttons">
-				<div style="float: left">
+				<div id="article_button_left">
 					<label id="image_radio_open_label" style="display: none">${diary.diary_isopen}</label>
 					<label id="image_radio_comment_label" style="display: none">${diary.diary_iscomment}</label>
 					<input type="checkbox" name="diary_isopen" id="image_radio_open"
 						onclick="return false"> <input type="checkbox"
 						name="diary_iscomment" id="image_radio_comment"
 						onclick="return false">
+					<!-- 댓글쓰기 버튼 -->
+					<div style="float: right;" onclick="commentView()">
+						<img src="../image/view_icon/view_comment.png" id="comment_btn"/>
+					</div>
 				</div>
-				<div style="margin:5px 0px 0px;">
+				
+				<div id="article_button_right">
 					<c:choose>
-					<c:when test="${diary.user_no == loginInfo.user_no}">
-						<input type="button" id="image_button_update"/>
-						<input type="button" id="image_button_delete"
-							onclick="location.href='delete.do?no=${diary.diary_no}';"/>
-					</c:when>
-				</c:choose>
+						<c:when test="${diary.user_no == loginInfo.user_no}">
+							<input type="button" id="image_button_update"/>
+							<input type="button" id="image_button_delete"
+								onclick="location.href='delete.do?no=${diary.diary_no}';"/>
+						</c:when>
+					</c:choose>
 				</div>
-				<div style="float: right;" onclick="commentView()">
-					<img src="../image/view_icon/view_comment.png" id="comment_btn"/>
-				</div>
+				
 			</div>
 		</div>
 
