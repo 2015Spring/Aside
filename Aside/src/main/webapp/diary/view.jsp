@@ -59,10 +59,24 @@
 		<!-- 보기 -->
 		<div id="diary_view">
 			<!-- 날짜 -->
-			<div class="form-group">
-	 			<input type="text" id="diary_date" class="form-control input-lg" readonly
-						value="<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}" />"/>
-			</div>
+			<c:choose>
+				<c:when test="${diary.user_no == loginInfo.user_no}">
+					<div class="form-group">
+		 					<input type="text" id="diary_date" class="form-control input-lg" readonly
+		 						value="<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}"/>"/>
+					</div>
+					<br><br>
+				</c:when>
+				<c:otherwise>
+					<div class="form-group">
+		 					<input type="text" id="diary_date_other" class="form-control input-lg" readonly
+		 						value="<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}"/>"/>
+		 					<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark"/>
+					</div>
+					<br><br>
+				</c:otherwise>
+			</c:choose>
+			
 			<!-- 내용 -->
 			<div class="form-group">
 				<textarea id="diary_context" class="form-control" readonly="readonly">${diary.diary_context}</textarea>

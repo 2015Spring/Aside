@@ -107,9 +107,28 @@ body {
 	display: inline-block;
 }
 
-#diary_date, #diary_context:read-only {
+#diary_date:read-only {
+	widgh:100%;
 	background-color:none;
 	cursor:default;
+	float:left;
+}
+
+#diary_date_other:read-only {
+	width:95%;
+	float:left;
+	background-color:none;
+	cursor:default;
+}
+
+#diary_context:read-only {
+	background-color:none;
+	cursor:default;
+}
+
+
+.diary_other_bookmark {
+	float:right;
 }
 
 #view_type {
