@@ -77,9 +77,14 @@
 						name="diary_iscomment" id="image_radio_comment"
 						onclick="return false">
 					<!-- 댓글쓰기 버튼 -->
-					<div style="float: right;" onclick="commentView()">
-						<img src="../image/view_icon/view_comment.png" id="comment_btn"/>
-					</div>
+					<c:choose>
+						<c:when test="<!--여기 if문 써줘..태히야..-->">
+							<div style="float: right;" onclick="commentView()">
+								<img src="../image/view_icon/view_comment.png" id="comment_btn"/>
+							</div>
+						</c:when>
+					</c:choose>
+					
 				</div>
 				
 				<div id="article_button_right">
@@ -142,7 +147,9 @@
 			</div>
 		</div>
 	
-	<!-- article -->
+		<!-- article -->
+		</div>
+	<!-- wrapper -->
 	</div>
 </body>
 </html>
