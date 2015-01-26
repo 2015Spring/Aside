@@ -2,7 +2,10 @@ package ktds.aside.dao;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import ktds.aside.domain.Diary;
 import ktds.aside.domain.User;
@@ -80,12 +83,11 @@ public class DiaryDao {
     }
   }
   
-  public List<Diary> selectOtherList() {
+  public List<Diary> selectOtherList(int no) {
     SqlSession sqlSession = sqlSessionFactory.openSession();
     try {
-      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectOtherList");
+      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectOtherList", no);
     } catch (Exception e) {
-      e.printStackTrace();
       return null;
     } finally {
       sqlSession.close();

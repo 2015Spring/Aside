@@ -36,7 +36,14 @@ $(function() {
 						<c:choose>
 							<c:when test="${diary.user_no != loginInfo.user_no}">
 								<input type="hidden" id="diary_no" value="${diary.diary_no}">
-								<input type="checkbox" name="diary_bookmark" id="diary_bookmark">
+								<c:choose>
+								<c:when test="${diary.is_bookmark > 0}">
+									<input type="checkbox" name="diary_bookmark" id="diary_bookmark" checked="checked">
+								</c:when>
+								<c:otherwise>
+									<input type="checkbox" name="diary_bookmark" id="diary_bookmark">
+								</c:otherwise>
+								</c:choose>
 							</c:when>
 						</c:choose>
 						</label>

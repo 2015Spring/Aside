@@ -58,7 +58,7 @@ public class DiaryControl {
   
   @RequestMapping("/list_othertimeline")
   public String listOtherList(Model model, HttpSession session) {
-    model.addAttribute("list", diaryDao.selectOtherList());
+    model.addAttribute("list", diaryDao.selectOtherList(((User) session.getAttribute("loginInfo")).getUser_no()));
     model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
     return "../diary/list_othertimeline.jsp";
   }

@@ -1,61 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  -->
+<!-- -->
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ktds.aside.dao.DiaryDao">
 
-	
+
 	<insert id="insert" parameterType="Diary">
-	insert into diary
-	(user_no,diary_context,diary_isopen,
-	diary_iscomment,diary_date) values 
-	(#{user_no},#{diary_context},
-	#{diary_isopen},#{diary_iscomment},
-	now())
+		insert into diary
+		(user_no,diary_context,diary_isopen,
+		diary_iscomment,diary_date) values
+		(#{user_no},#{diary_context},
+		#{diary_isopen},#{diary_iscomment},
+		now())
 	</insert>
-	
+
 	<select id="selectMyList" parameterType="int" resultType="Diary">
-	 select 
-		 user_no, diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
-		 diary_image from diary  
-	 where user_no = #{no}
-	 order by diary_date desc
+		select
+		user_no, diary_no, diary_date, diary_context, diary_isopen, diary_iscomment,
+		diary_image from diary
+		where user_no = #{no}
+		order by diary_date desc
 	</select>
-	
+
 	<select id="selectOne" parameterType="int" resultType="Diary">
-   select user_no, diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
-   diary_image from diary where diary_no = #{diary_no}
-  </select>
-  
-  <delete id="delete" parameterType="int">
-   delete 
-   from diary
-   where diary_no=#{no}
-  </delete>
-  
-  <update id="update" parameterType="Diary">
-   update diary set 
-    diary_context = #{diary_context},
-    diary_isopen = #{diary_isopen},
-    diary_iscomment = #{diary_iscomment}
-   where diary_no=#{diary_no}
-  </update>
-  
-  <select id="selectOtherList" resultType="Diary">
-   select user_no, diary_no, diary_date, diary_context, diary_isopen, diary_iscomment, 
-   diary_image from diary
-   where diary_isopen=1
-   order by diary_date desc
-  </select>
-  
-  <select id="selectBookmarkList" parameterType="int" resultType="Diary">
-    select
-      user_no, diary_no, diary_date, diary_context, 
-      diary_isopen, diary_iscomment, diary_image
-    from diary
-    where diary_no in (select diary_no from bookmark where user_no = #{no})
-    order by diary_date desc;
-  </select>
-	
+		select user_no, diary_no, diary_date, diary_context, diary_isopen,
+		diary_iscomment,
+		diary_image from diary where diary_no = #{diary_no}
+	</select>
+
+	<delete id="delete" parameterType="int">
+		delete
+		from diary
+		where diary_no=#{no}
+	</delete>
+
+	<update id="update" parameterType="Diary">
+		update diary set
+		diary_context = #{diary_context},
+		diary_isopen = #{diary_isopen},
+		diary_iscomment = #{diary_iscomment}
+		where diary_no=#{diary_no}
+	</update>
+
+	<select id="selectOtherList" parameterType="int" resultType="Diary">
+		select d.user_no, d.diary_no, d.diary_date, d.diary_context, d.diary_isopen,
+		d.diary_iscomment, d.diary_image,
+		ifnull((select diary_no from bookmark b where user_no=#{no} and b.diary_no=d.diary_no), 0) as is_bookmark
+		from diary d
+		where diary_isopen=1
+		order by diary_date desc
+	</select>
+
+	<select id="selectBookmarkList" parameterType="int" resultType="Diary">
+		select
+		user_no, diary_no, diary_date, diary_context,
+		diary_isopen, diary_iscomment, diary_image
+		from diary
+		where diary_no in (select diary_no from bookmark where user_no = #{no})
+		order by diary_date desc;
+	</select>
+
 </mapper>

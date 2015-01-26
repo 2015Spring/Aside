@@ -78,7 +78,7 @@
 						onclick="return false">
 					<!-- 댓글쓰기 버튼 -->
 					<c:choose>
-						<c:when test="<!--여기 if문 써줘..태히야..-->">
+						<c:when test="${diary.diary_iscomment == true}">
 							<div style="float: right;" onclick="commentView()">
 								<img src="../image/view_icon/view_comment.png" id="comment_btn"/>
 							</div>
