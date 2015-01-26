@@ -18,7 +18,7 @@ function bookmark(ctrl) {
 }
 </script>
 </head>
-
+<!-- 북마크 -->
 <body>
 	<div id="wrapper">
 		<jsp:include page="header_other.jsp"/>
