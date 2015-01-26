@@ -62,7 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="selectComment" parameterType="int" resultType="Comment">
-	 SELECT COMMENT_CONTEXT
+	 SELECT *
 	   FROM comment
 	   WHERE diary_no=#{diary_no}
 	</select>
@@ -71,18 +71,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    DELETE
      FROM comment
      WHERE diary_no=#{diary_no}
-  </select>
-  
-  <select id="deleteComment" parameterType="int" resultType="Comment">
-   DELETE
-     FROM comment
-     WHERE diary_no=#{diary_no}
-  </select>
-  
-  <select id="updateComment" parameterType="int" resultType="Comment">
-   update comment set
-    comment_context = #{comment_context}
-    where diary_no=#{diary_no}
   </select>
 
 </mapper>

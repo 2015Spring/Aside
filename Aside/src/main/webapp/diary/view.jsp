@@ -44,13 +44,25 @@
        var diary_no = document.getElementById("diary_no");
        var comment_context = document.getElementById("comment_context");
        
-       createAjax();
+       if(comment_context.value != ""){
+    	createAjax();
+        
+        xmlReq.open("POST", "asyn_comment.jsp?diary_no="+diary_no.value
+            +"&comment_context="+comment_context.value, false);
+        xmlReq.send(null);
+        
+        comment_context.value = "";
+        
+        $("#comment").load("./comment.do?no=${diary.diary_no}");
+        }
+   }
+   
+   function deleteComment(comment_no)
+   {
+	   createAjax();
        
-       xmlReq.open("POST", "asyn_comment.jsp?diary_no="+diary_no.value
-           +"&comment_context="+comment_context.value, true);
+       xmlReq.open("POST", "asyn_deleteComment.jsp?comment_no="+comment_no, false);
        xmlReq.send(null);
-       
-       comment_context.value = "";
        
        $("#comment").load("./comment.do?no=${diary.diary_no}");
    }
@@ -179,6 +191,14 @@
         <c:forEach var="comment" items="${list}">
           <div id="comment_list_repeat"><!-- 반복 -->
             <pre>${comment.comment_context}</pre>
+            <c:if test="${loginInfo.user_no == comment.user_no}">
+            <button type="button" onclick="deleteComment(${comment.comment_no})" class="btn btn-default btn-lg">
+           	 <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            <button type="button" onclick="updateComment(${comment.comment_no})" class="btn btn-default btn-lg">
+           	 <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            </c:if>
           </div><!-- 반복끝 -->
         </c:forEach>
       </div>

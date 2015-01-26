@@ -114,29 +114,5 @@ public class DiaryDao {
     }
     
   }
-
-  public List<Comment> deleteComment(int no) {
-    SqlSession sqlSession = sqlSessionFactory.openSession();
-    try {
-      return sqlSession.selectList("ktds.aside.dao.DiaryDao.deleteComment", no);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return null;
-    } finally {
-      sqlSession.close();
-    }
-  }
-
-  public List<Comment> updateComment(int no) {
-    SqlSession sqlSession = sqlSessionFactory.openSession();
-    try {
-      return sqlSession.selectList("ktds.aside.dao.DiaryDao.updateComment", no);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return null;
-    } finally {
-      sqlSession.close();
-    }
-  }
   
 }

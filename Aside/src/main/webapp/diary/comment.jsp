@@ -19,6 +19,11 @@
         <c:forEach var="comment" items="${list}">
           <div id="comment_list_repeat"><!-- 반복 -->
             <pre>${comment.comment_context}</pre>
+            <c:if test="${loginInfo.user_no == comment.user_no}">
+            <button type="button" onclick="deleteComment(${comment.comment_no})" class="btn btn-default btn-lg">
+           	 <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            </c:if>
           </div><!-- 반복끝 -->
         </c:forEach>
       </div>

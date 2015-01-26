@@ -41,6 +41,7 @@ public class DiaryControl {
       model.addAttribute("list", diaryDao.selectComment(no));
       model.addAttribute("diary", diaryDao.selectOne(no));
       model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
+      System.out.println(((User) session.getAttribute("loginInfo")).getUser_no());
       return "/diary/view.jsp";
   }
   
@@ -48,18 +49,6 @@ public class DiaryControl {
   public String comment(int no, Model model) {
       model.addAttribute("list", diaryDao.selectComment(no));
       model.addAttribute("diary", diaryDao.selectOne(no));
-      return "/diary/comment.jsp";
-  }
-  
-  @RequestMapping("/deleteComment")
-  public String deleteComment(int no, Model model) {
-      model.addAttribute("list", diaryDao.deleteComment(no));
-      return "/diary/comment.jsp";
-  }
-  
-  @RequestMapping("/updateComment")
-  public String updateComment(int no, Model model) {
-      model.addAttribute("list", diaryDao.updateComment(no));
       return "/diary/comment.jsp";
   }
 
