@@ -215,7 +215,7 @@
 					
 					<c:if test="${loginInfo.user_no == comment.user_no}">
 						<div id="comment_buttons">
-							<button type="button" onclick="" 
+							<button type="button" onclick="updateComment(${comment.comment_no})" 
 									id="comment_update_btn" class="btn btn-default btn-lg">
 								<span class="glyphicon glyphicon-pencil"></span>
 							</button>
