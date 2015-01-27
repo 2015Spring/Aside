@@ -76,7 +76,7 @@
 					<div class="arrow_box">
 						<ul>
 							<li><a href="logout.do">로그아웃</a></li>
-							<li><a href="../user/set_password.html">비밀번호 변경</a></li>
+							<li><a href="../user/set_user_password.html">비밀번호 변경</a></li>
 							<li onclick="layer_open('layer2');return false;"><a>탈퇴하기</a></li>
 						</ul>
 					</div>
