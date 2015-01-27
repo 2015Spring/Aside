@@ -245,6 +245,47 @@ hr {
 	cursor:pointer;
 }
 
+#comment_repeat_form {
+	width:100%;
+	min-height:200px;
+	margin-top:5px;
+}
+
+#comment_list_repeat {
+	width:100%
+	background-color:#E0E0E0;
+	padding:10px 40px;
+	min-height:40px;
+	border-radius:5px;
+	margin-bottom:5px;
+}
+
+#comment_area{
+	float:left;
+	width:80%;
+}
+
+#comment_buttons {
+	float:right;
+}
+
+#comment_update_btn, #comment_delete_btn {
+	-webkit-apperance: none;
+	border: none;
+	background: none;
+	margin:0px;
+	padding:0px;
+	color:#A5A5A5;
+}
+
+#comment_update_btn:hover {
+	color:#1297E0;
+}
+
+#comment_delete_btn:hover {
+	color:#F75C4C;
+}
+
 #empty_list {
 	border:4px dotted #8E8E8E;
 	border-radius:5px;
