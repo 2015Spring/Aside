@@ -54,7 +54,7 @@ function bookmark(ctrl) {
 				<br><br>
 			</div>
 			
-			<jsp:include page="view_type.jsp"/>
+			<jsp:include page="view_type_other.jsp"/>
 		</div>
 		
 	</div>

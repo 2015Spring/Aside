@@ -43,7 +43,7 @@
 				<br><br>
 			</div>
 			
-			<jsp:include page="view_type.jsp"/> 
+			<jsp:include page="view_type_my.jsp"/> 
 		</div>
 		
 	</div>
