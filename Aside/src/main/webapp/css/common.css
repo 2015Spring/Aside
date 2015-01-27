@@ -299,3 +299,9 @@ hr {
 	color:#595959;
 	opacity:1;
 }
+
+/* 가입할때 */
+#result, #passwordResult {
+	font-weight:lighter;	
+	font-size:9pt;
+}
