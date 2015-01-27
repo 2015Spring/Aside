@@ -12,11 +12,11 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
-  <!-- @Componenet,@Service,@Controller,@Repository 어.노.테.이.션.이 붙은 클래스를 찾아 인스턴스를 생성한다. 
-      => @Autowired가 붙은 변수에 객체를 주입한다.(의존객체) -->
+	<!-- @Componenet,@Service,@Controller,@Repository 어.노.테.이.션.이 붙은 클래스를 찾아 
+		인스턴스를 생성한다. => @Autowired가 붙은 변수에 객체를 주입한다.(의존객체) -->
 	<context:component-scan base-package="ktds" />  <!-- ktds패키지만 -->
 
-	<!-- @RequestMapping 등 MVC 관련 어노테이션을 처리할 객체를 준비한다.-->
+	<!-- @RequestMapping 등 MVC 관련 어노테이션을 처리할 객체를 준비한다. -->
 	<mvc:annotation-driven />
 
 	<!-- Database 커넥션 풀 준비 -->
@@ -31,7 +31,7 @@
 
 	<!-- -->
 	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -41,12 +41,23 @@
 		<property name="mapperLocations" value="classpath*:ktds/aside/dao/*Dao.xml" />
 		<property name="typeAliasesPackage" value="ktds.aside.domain" />
 	</bean>
-  
-  <!-- 멀티파트 형식의 데이터를 처리하고 싶다면, 다음 객체를 선언해야 한다. -->
-  <bean id="multipartResolver"
-    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    <property name="maxUploadSize" value="10000000" />
-  </bean>
 
+	<!-- 멀티파트 형식의 데이터를 처리하고 싶다면, 다음 객체를 선언해야 한다. -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10000000" />
+	</bean>
+
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" /> <!-- 보내는 사람 메일 계정 -->
+		<property name="port" value="587"/>
+		<property name="username" value="springaside@gmail.com"/>
+		<property name="password" value="spring_aside"/>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
 
 </beans>
