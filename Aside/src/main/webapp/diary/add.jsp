@@ -18,13 +18,14 @@
 		<jsp:include page="header_other.jsp"/>
 		
 		<div id="article">
-		<form action="add.do" method="post" id="diary_form">
+		<form action="add.do" method="post" id="diary_form" enctype="multipart/form-data">
 			<div class="form-group">
 				<input type="text" name="diary_date" class="form-control input-lg" value="<%=date%>">
 			</div>
 			<div class="form-group">
 				<textarea id="diary_context" name="diary_context" class="form-control"></textarea>
 			</div>
+			사진 : <input type="file" name="file">
 			<div>
 				<div style="float:left">
 					<input type="checkbox" name="diary_isopen" id="image_radio_open"> 

@@ -1,5 +1,9 @@
 package ktds.aside.control;
 
+import java.io.File;
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import ktds.aside.dao.DiaryDao;
@@ -11,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/diary")
@@ -21,11 +26,27 @@ public class DiaryControl {
   
   @Autowired
   UserDao userDao;
+  
+  @Autowired
+  ServletContext context;
 
   @RequestMapping("/add")
-  public String add(Diary diary, HttpSession session) {
+  public String add(Diary diary, HttpSession session, MultipartFile file) {
+    System.out.println("add.do 들어왔숑");
     User user = (User) session.getAttribute("loginInfo");
     diary.setUser_no(user.getUser_no());
+    String realPath = context.getRealPath("/files");
+    String filename = "photo_" + System.currentTimeMillis();
+    try {
+      System.out.println("경로 : " + realPath + "/" + filename);
+      file.transferTo(new File(realPath + "/" + filename));
+      diary.setDiary_image(filename);
+      System.out.println(diary.getDiary_image());
+    } catch (IllegalStateException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     diaryDao.insert(diary);
     return "redirect:list_mytimeline.do";
   }
