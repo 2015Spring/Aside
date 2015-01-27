@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-
 		<!-- 댓글쓰는부분 -->
 		<br><br>
 		<form id="diary_form">
@@ -18,30 +17,29 @@
       
 		<!-- 댓글 보이는 부분 -->
 		<div id="comment_repeat_form">
+			<!-- 반복 -->
 			<c:forEach var="comment" items="${list}">
-			<!-- 반복시작 -->
-			<div style="background-color:#E0E0E0; border-radius:5px;">
-				<div id="comment_list_repeat">
+			<div id="comment_repeat">
+				<textarea id="${comment.comment_no}" readonly="readonly"
+						rows="1" class="comment_textarea">${comment.comment_context}</textarea>
 				
-					<div id="comment_area">
-						${comment.comment_context}
-					</div>
-					
-					<c:if test="${loginInfo.user_no == comment.user_no}">
-						<div id="comment_buttons">
-							<button type="button" onclick="" 
-									id="comment_update_btn" class="btn btn-default btn-lg">
-								<span class="glyphicon glyphicon-pencil"></span>
-							</button>
-							&nbsp;&nbsp;
-							<button type="button" onclick="deleteComment(${comment.comment_no})" 
-									id="comment_delete_btn" class="btn btn-default btn-lg">
-								<span class="glyphicon glyphicon-remove"></span>
-							</button>
-						</div>
-					</c:if>
+				<!-- 버튼 -->
+				<c:if test="${loginInfo.user_no == comment.user_no}">
+				<div id="comment_buttons">
+					<button type="button" 
+							onclick="gotoUpdate(${comment.comment_no})" 
+							id="comment_update_btn" class="btn btn-default btn-lg">
+						<span class="glyphicon glyphicon-pencil" id="comment_update_btn"></span>
+					</button>
+					&nbsp;&nbsp;
+					<button type="button" onclick="deleteComment(${comment.comment_no})" 
+							id="comment_delete_btn" class="btn btn-default btn-lg">
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
 				</div>
+				</c:if>
+				
 			</div>
-			<!-- 반복끝 -->
 			</c:forEach>
+			
 		</div>

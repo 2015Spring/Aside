@@ -67,21 +67,19 @@
        $("#comment").load("./comment.do?no=${diary.diary_no}");
    }
    
-   function updateComment(comment_no)
-   {
-       var comment_context = document.getElementById("comment_context");
-       
+   function updateComment(comment_no, update_text)
+   {	
 	   createAjax();
        
        xmlReq.open("POST", "asyn_updateComment.jsp?comment_no="
-    		   +comment_no+"&comment_context="+comment_context.value, false);
+    		   +comment_no+"&comment_context="+update_text, false);
        xmlReq.send(null);
+       
        
        $("#comment").load("./comment.do?no=${diary.diary_no}");
    }
    
    var onoff = false;
-
    function commentView(){
        
     if(onoff==false){
@@ -92,6 +90,19 @@
         document.getElementById("comment").style.display = "none";
       }
     }
+   
+   function gotoUpdate(comment_no){
+	  var updateButton = document.getElementById("comment_update");
+		
+	  if($("#"+comment_no).prop("readonly")==true){
+		  $("#"+comment_no).prop("readonly", false);
+		  updateButton.className = "glyphicon glyphicon-ok";
+	  }else{
+		  $("#"+comment_no).prop("readonly", true);
+		  updateButton.className = "glyphicon glyphicon-pencil";
+	  }
+   }
+   
   </script>
 </head>
 
@@ -166,6 +177,7 @@
         <input type="text" name="diary_date" id="diary_date" readonly
           class="form-control input-lg">
       </div>
+      <br><br>
       <div class="form-group">
         <textarea name="diary_context" id="diary_context"
           class="form-control"></textarea>
@@ -204,32 +216,32 @@
       
 		<!-- 댓글 보이는 부분 -->
 		<div id="comment_repeat_form">
+			<!-- 반복 -->
 			<c:forEach var="comment" items="${list}">
-			<!-- 반복시작 -->
-			<div style="background-color:#E0E0E0; border-radius:5px;">
-				<div id="comment_list_repeat">
+			<div id="comment_repeat">
+				<textarea id="${comment.comment_no}" readonly="readonly"
+						rows="1" class="comment_textarea">${comment.comment_context}</textarea>
 				
-					<div id="comment_area">
-						${comment.comment_context}
-					</div>
+				<!-- 버튼 -->
+				<c:if test="${loginInfo.user_no == comment.user_no}">
+				<div id="comment_buttons">
+					<button type="button" 
+							onclick="gotoUpdate(${comment.comment_no})" 
+							id="comment_update_btn" class="btn btn-default btn-lg">
+						<span class="glyphicon glyphicon-pencil" id="comment_update"></span>
+					</button>
 					
-					<c:if test="${loginInfo.user_no == comment.user_no}">
-						<div id="comment_buttons">
-							<button type="button" onclick="updateComment(${comment.comment_no})" 
-									id="comment_update_btn" class="btn btn-default btn-lg">
-								<span class="glyphicon glyphicon-pencil"></span>
-							</button>
-							&nbsp;&nbsp;
-							<button type="button" onclick="deleteComment(${comment.comment_no})" 
-									id="comment_delete_btn" class="btn btn-default btn-lg">
-								<span class="glyphicon glyphicon-remove"></span>
-							</button>
-						</div>
-					</c:if>
+					&nbsp;&nbsp;
+					<button type="button" onclick="deleteComment(${comment.comment_no})" 
+							id="comment_delete_btn" class="btn btn-default btn-lg">
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
 				</div>
+				</c:if>
+				
 			</div>
-			<!-- 반복끝 -->
 			</c:forEach>
+			
 		</div>
     </div>
     

@@ -247,26 +247,37 @@ hr {
 
 #comment_repeat_form {
 	width:100%;
-	min-height:200px;
-	margin-top:5px;
+	min-height:60px;
+	background-color:none;
+	margin-top:10px;
 }
 
-#comment_list_repeat {
-	width:100%
+#comment_repeat {
+	width:100%;
+	min-height:37px;
 	background-color:#E0E0E0;
-	padding:10px 40px;
-	min-height:40px;
 	border-radius:5px;
+	padding:10px 40px 5px;
 	margin-bottom:5px;
 }
 
-#comment_area{
-	float:left;
-	width:80%;
+.comment_textarea:read-only {
+	width:85%;
+	background-color:#E0E0E0;
+	border:none;
+	resize:none;
+}
+
+.comment_textarea {
+	width:85%;
+	background-color:white;
+	border:none;
+	resize:none;
 }
 
 #comment_buttons {
 	float:right;
+	margin-top:4px;
 }
 
 #comment_update_btn, #comment_delete_btn {
