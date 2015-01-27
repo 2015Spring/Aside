@@ -23,10 +23,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by diary_date desc
 	</select>
 
-	<select id="selectOne" parameterType="int" resultType="Diary">
+	<select id="selectOne" parameterType="Diary" resultType="Diary">
 		select user_no, diary_no, diary_date, diary_context, diary_isopen,
-		diary_iscomment,
-		diary_image from diary where diary_no = #{diary_no}
+		diary_iscomment, diary_image,
+		ifnull((select diary_no from bookmark b where user_no=#{user_no} and b.diary_no=d.diary_no), 0) as is_bookmark 
+		from diary d
+		where diary_no = #{diary_no}
 	</select>
 
 	<delete id="delete" parameterType="int">

@@ -38,8 +38,15 @@
    
    var xmlReq;
    function createAjax() {
-     xmlReq = new XMLHttpRequest();
+   	xmlReq = new XMLHttpRequest();
    }
+   
+   function bookmark(ctrl) {
+   	createAjax();
+   	xmlReq.open("POST", "asyn_bookmark.jsp?diary_no="+ctrl.value+"&bookmark="+ctrl.checked, true);
+   	xmlReq.send(null);
+   }
+   
    function comment() {
        var diary_no = document.getElementById("diary_no");
        var comment_context = document.getElementById("comment_context");
@@ -128,7 +135,14 @@
           <div class="form-group">
               <input type="text" id="diary_date_other" class="form-control input-lg" readonly
                 value="<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}"/>"/>
-              <input type="checkbox" id="diary_bookmark" class="diary_other_bookmark"/>
+              <c:choose>
+              <c:when test="${diary.is_bookmark > 0}">
+              	<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark" checked="checked" />
+              </c:when>
+              <c:otherwise>
+              	<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark"/>
+              </c:otherwise>
+              </c:choose>
           </div>
           <br><br>
         </c:otherwise>

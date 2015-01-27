@@ -42,11 +42,11 @@ public class DiaryDao {
       sqlSession.close();
     }
   }
-
-  public Diary selectOne(int no) {
+  
+  public Diary selectOne(Diary diary) {
     SqlSession sqlSession = sqlSessionFactory.openSession();
     try {
-      return sqlSession.selectOne("ktds.aside.dao.DiaryDao.selectOne", no);
+      return sqlSession.selectOne("ktds.aside.dao.DiaryDao.selectOne", diary);
     } catch (Exception e) {
       e.printStackTrace();
       return null;
