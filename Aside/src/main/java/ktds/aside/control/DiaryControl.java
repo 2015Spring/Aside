@@ -41,7 +41,6 @@ public class DiaryControl {
       model.addAttribute("list", diaryDao.selectComment(no));
       model.addAttribute("diary", diaryDao.selectOne(no));
       model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
-      System.out.println(((User) session.getAttribute("loginInfo")).getUser_no());
       return "/diary/view.jsp";
   }
   

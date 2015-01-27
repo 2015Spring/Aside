@@ -21,7 +21,6 @@ public class UserControl {
     
     @RequestMapping("/signin")
     public String signUp(User user){
-      System.out.println(user.getUser_password());
 	  userDao.insert(user);
 	  return "redirect:login.html"; 
     }
