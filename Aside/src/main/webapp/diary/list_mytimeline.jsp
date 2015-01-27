@@ -34,6 +34,7 @@
 									<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}" />
 								</label>
 							</div>
+							 <img style="width:150px; height:150px;" src="../files/${diary.diary_image}">
 							<pre>${diary.diary_context}</pre>
 						</div><!-- 반복끝 -->
 					</div>
