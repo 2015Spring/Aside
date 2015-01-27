@@ -74,4 +74,16 @@ public class UserDao {
 		}
 	}
 
+	public void updatePassword(User user) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			sqlSession.update("ktds.aside.dao.UserDao.updatePassword", user);
+			sqlSession.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+	}
+
 }

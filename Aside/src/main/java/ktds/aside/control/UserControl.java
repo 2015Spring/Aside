@@ -41,4 +41,11 @@ public class UserControl {
       
     }
     
+    @RequestMapping("/setpassword")
+    public String setPassword(User user)
+    {
+    	userDao.updatePassword(user);
+    	return "redirect:/user/login.html";
+    }
+    
 }
