@@ -92,12 +92,13 @@
     }
    
    function gotoUpdate(comment_no){
-	  var updateButton = document.getElementById("comment_update");
+	  var updateButton = document.getElementById("comment_update_"+comment_no);
 		
 	  if($("#"+comment_no).prop("readonly")==true){
 		  $("#"+comment_no).prop("readonly", false);
 		  updateButton.className = "glyphicon glyphicon-ok";
 	  }else{
+		  updateComment(comment_no, $("#"+comment_no).val());
 		  $("#"+comment_no).prop("readonly", true);
 		  updateButton.className = "glyphicon glyphicon-pencil";
 	  }
@@ -228,7 +229,7 @@
 					<button type="button" 
 							onclick="gotoUpdate(${comment.comment_no})" 
 							id="comment_update_btn" class="btn btn-default btn-lg">
-						<span class="glyphicon glyphicon-pencil" id="comment_update"></span>
+						<span class="glyphicon glyphicon-pencil" id="comment_update_${comment.comment_no}"></span>
 					</button>
 					
 					&nbsp;&nbsp;
@@ -243,6 +244,8 @@
 			</c:forEach>
 			
 		</div>
+		
+		
     </div>
     
     <!-- article -->

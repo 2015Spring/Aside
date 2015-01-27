@@ -29,8 +29,9 @@
 					<button type="button" 
 							onclick="gotoUpdate(${comment.comment_no})" 
 							id="comment_update_btn" class="btn btn-default btn-lg">
-						<span class="glyphicon glyphicon-pencil" id="comment_update_btn"></span>
+						<span class="glyphicon glyphicon-pencil" id="comment_update_${comment.comment_no}"></span>
 					</button>
+					
 					&nbsp;&nbsp;
 					<button type="button" onclick="deleteComment(${comment.comment_no})" 
 							id="comment_delete_btn" class="btn btn-default btn-lg">
