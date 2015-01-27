@@ -28,19 +28,6 @@
              $('#diary_form').css('display', 'none');
            });
            
-           $('#comment_update_btn').click(function() {
-        	   $('#comment_context_pre').css("display", "none");
-        	   $('#comment_context_update_div').css("display", "block");
-           });
-           
-           $('#comment_context_update_div #cancle_btn').click(function() {
-        	   $('#comment_context_pre').css("display", "block");
-        	   $('#comment_context_update_div').css("display", "none");
-           });
-           
-           $('#comment_context_update_div #udpate_btn').click(function() {
-        	   // 업데이트 코드 할 부분
-           });
        });
    });
    
@@ -54,7 +41,6 @@
      xmlReq = new XMLHttpRequest();
    }
    function comment() {
-	   
        var diary_no = document.getElementById("diary_no");
        var comment_context = document.getElementById("comment_context");
        
@@ -76,6 +62,19 @@
 	   createAjax();
        
        xmlReq.open("POST", "asyn_deleteComment.jsp?comment_no="+comment_no, false);
+       xmlReq.send(null);
+       
+       $("#comment").load("./comment.do?no=${diary.diary_no}");
+   }
+   
+   function updateComment(comment_no)
+   {
+       var comment_context = document.getElementById("comment_context");
+       
+	   createAjax();
+       
+       xmlReq.open("POST", "asyn_updateComment.jsp?comment_no="
+    		   +comment_no+"&comment_context="+comment_context.value, false);
        xmlReq.send(null);
        
        $("#comment").load("./comment.do?no=${diary.diary_no}");
@@ -204,26 +203,15 @@
       <div style="margin:5px 0px 0px;">
         <c:forEach var="comment" items="${list}">
           <div id="comment_list_repeat"><!-- 반복 -->
-          	<div id="comment_context_pre">
-	            <pre>${comment.comment_context}</pre>
-	            <c:if test="${loginInfo.user_no == comment.user_no}">
-		            <button type="button" onclick="deleteComment(${comment.comment_no})" class="btn btn-default btn-lg">
-		           	 <span class="glyphicon glyphicon-remove"></span>
-		            </button>
-		            <button type="button" id="comment_update_btn" class="btn btn-default btn-lg">
-		           	 <span class="glyphicon glyphicon-pencil"></span>
-		            </button>
-	            </c:if>
-          	</div>
-            <div id="comment_context_update_div" style="display:none">
-            	<textarea id="comment_context_textarea">${comment.comment_context}</textarea>
-            	<button type="button" id="update_btn" class="btn btn-default btn-lg">
+            <textarea readonly="readonly">${comment.comment_context}</textarea>
+            <c:if test="${loginInfo.user_no == comment.user_no}">
+	            <button type="button" onclick="" id="comment_update_btn" class="btn btn-default btn-lg">
 	           	 <span class="glyphicon glyphicon-pencil"></span>
 	            </button>
-            	<button type="button" id="cancle_btn" class="btn btn-default btn-lg">
+	            <button type="button" onclick="deleteComment(${comment.comment_no})" class="btn btn-default btn-lg">
 	           	 <span class="glyphicon glyphicon-remove"></span>
 	            </button>
-            </div>
+            </c:if>
           </div><!-- 반복끝 -->
         </c:forEach>
       </div>
