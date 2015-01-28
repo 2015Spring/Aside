@@ -32,21 +32,22 @@ public class DiaryControl {
 
   @RequestMapping("/add")
   public String add(Diary diary, HttpSession session, MultipartFile file) {
-    System.out.println("add.do 들어왔숑");
     User user = (User) session.getAttribute("loginInfo");
     diary.setUser_no(user.getUser_no());
-    String realPath = context.getRealPath("/files");
-    String filename = "photo_" + System.currentTimeMillis();
-    try {
-      System.out.println("경로 : " + realPath + "/" + filename);
-      file.transferTo(new File(realPath + "/" + filename));
-      diary.setDiary_image(filename);
-      System.out.println(diary.getDiary_image());
-    } catch (IllegalStateException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
+    
+    if(file.getOriginalFilename().length()>0){
+	    String realPath = context.getRealPath("/files");
+	    String filename = "photo_" + System.currentTimeMillis();
+	    try {
+	      file.transferTo(new File(realPath + "/" + filename));
+	      diary.setDiary_image(filename);
+	    } catch (IllegalStateException e) {
+	      e.printStackTrace();
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    }
     }
+    
     diaryDao.insert(diary);
     return "redirect:list_mytimeline.do";
   }
