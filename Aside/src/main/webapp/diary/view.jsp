@@ -144,7 +144,7 @@
                 value="<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}"/>"/>
               <c:choose>
               <c:when test="${diary.is_bookmark > 0}">
-              	<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark" checked="checked" onclick="bookmark(this)"/>
+              	<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark" checked="checked" onclick="updateIsBookmark(this)"/>
               </c:when>
               <c:otherwise>
               	<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark" onclick="updateIsBookmark(this)"/>
