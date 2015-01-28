@@ -93,10 +93,17 @@ public class DiaryControl {
       return "../diary/list_mytimeline.jsp?viewType=1";
   }
   
-  @RequestMapping("/list_add")
-  public String listAdd(HttpSession session, Model model, int page){
+  @RequestMapping("/list_mytimeline_add")
+  public String listMytimelineAdd(HttpSession session, Model model, int page){
 	  model.addAttribute("list", diaryDao.selectMyListAdd(((User)session.getAttribute("loginInfo")).getUser_no(), page));
-	  return "list_add.jsp";
+	  return "list_mytimeline_add.jsp";
+  }
+  
+  @RequestMapping("/list_othertimeline_add")
+  public String listOthertimelineAdd(HttpSession session, Model model, int page){
+	  model.addAttribute("list", diaryDao.selectOtherListAdd(((User) session.getAttribute("loginInfo")).getUser_no(), page));
+	  model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
+	  return "list_othertimeline_add.jsp";
   }
   
   @RequestMapping("/list_othertimeline")

@@ -62,6 +62,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from diary d
 		where diary_isopen=1
 		order by diary_date desc
+		limit 0, 5
+	</select>
+	
+	<select id="selectOtherListAdd" parameterType="map" resultType="Diary">
+		select d.user_no, d.diary_no, d.diary_date, d.diary_context, d.diary_isopen,
+		d.diary_iscomment, d.diary_image,
+		ifnull((select diary_no from bookmark b where user_no=#{no} and b.diary_no=d.diary_no), 0) as is_bookmark
+		from diary d
+		where diary_isopen=1
+		order by diary_date desc
+		limit #{page}, 5
 	</select>
 
 	<select id="selectBookmarkList" parameterType="int" resultType="Diary">

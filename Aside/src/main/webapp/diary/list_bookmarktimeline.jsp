@@ -23,6 +23,18 @@
 		xmlReq.open("POST", "asyn_bookmark.jsp?diary_no="+ctrl.value+"&bookmark="+ctrl.checked, true);
 		xmlReq.send(null);
 	}
+	
+	var page = 5;
+	$(window).scroll(function() {
+		if($(window).scrollTop()+$(window).height() == $(document).height()) {
+			$contentLoadTriggered = true;
+			$.post("./list_add.do?page="+page, function(data){
+	            $("#list_div").append(data);
+	            $contentLoadTriggered = false;
+	        });
+			page = page + 5;
+		}
+	});
 </script>
 </head>
 <body>
@@ -43,6 +55,8 @@
 					</div>
 				</c:when>
 				<c:otherwise>
+				
+				<div id="list_div">
 					<c:forEach var="diary" items="${list}">
 						<div id="article_list_repeat_div">
 							<label id="bookmark">
@@ -73,6 +87,7 @@
 							</div><!-- 반복끝 -->
 						</div>
 					</c:forEach>
+				</div>
 				</c:otherwise>
 				</c:choose>
 				<br><br>

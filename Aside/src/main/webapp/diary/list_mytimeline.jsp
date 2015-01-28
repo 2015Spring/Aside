@@ -19,7 +19,7 @@
 		$(window).scroll(function() {
 			if($(window).scrollTop()+$(window).height() == $(document).height()) {
 				$contentLoadTriggered = true;
-				$.post("./list_add.do?page="+page, function(data){
+				$.post("./list_mytimeline_add.do?page="+page, function(data){
 		            $("#list_div").append(data);
 		            $contentLoadTriggered = false;
 		        });

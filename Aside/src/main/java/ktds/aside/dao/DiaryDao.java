@@ -106,6 +106,20 @@ public class DiaryDao {
     }
   }
   
+  public List<Diary> selectOtherListAdd(int no, int page) {
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    try {
+    	HashMap<String, Integer> map = new HashMap<String, Integer>();
+    	map.put("no", no);
+    	map.put("page", page);
+      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectOtherListAdd", map);
+    } catch (Exception e) {
+      return null;
+    } finally {
+      sqlSession.close();
+    }
+  }
+  
   public List<Diary> selectBookmarkList(int no) {
     SqlSession sqlSession = sqlSessionFactory.openSession();
     try {
