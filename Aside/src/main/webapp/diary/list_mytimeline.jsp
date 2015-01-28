@@ -51,10 +51,15 @@
 								</label>
 							</div>
 							<!-- 이미지 -->
-							<c:if test="${diary.diary_image!=null }">
+							<c:choose>
+							<c:when test="${diary.diary_image!=null }">
 							 	<img id="list_image" src="../files/${diary.diary_image}">
-							</c:if>
-							<pre id="list_text">${diary.diary_context}</pre>
+								<pre id="list_text_img">${diary.diary_context}</pre>
+							</c:when>
+							<c:otherwise>
+								<pre id="list_text">${diary.diary_context}</pre>
+							</c:otherwise>
+							</c:choose>
 						</div><!-- 반복끝 -->
 					</div>
 					</c:forEach>
