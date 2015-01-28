@@ -49,7 +49,7 @@ public class DiaryControl {
     }
     
     diaryDao.insert(diary);
-    return "redirect:list_mytimeline.do";
+    return "redirect:list_mytimeline.do?viewType=1";
   }
 
   @RequestMapping("/view")
@@ -77,7 +77,7 @@ public class DiaryControl {
   @RequestMapping("/delete")
   public String delete(int no) {
     diaryDao.delete(no);
-    return "redirect:list_mytimeline.do";
+    return "redirect:list_mytimeline.do?viewType=1";
   }
 
   @RequestMapping("/update")
@@ -90,7 +90,7 @@ public class DiaryControl {
   public String listTimeline(HttpSession session, Model model, int viewType){
       model.addAttribute("list", diaryDao.selectMyList(((User)session.getAttribute("loginInfo")).getUser_no()));
       model.addAttribute("viewType", viewType);
-      return "../diary/list_mytimeline.jsp";
+      return "../diary/list_mytimeline.jsp?viewType=1";
   }
   
   @RequestMapping("/list_add")
@@ -103,14 +103,14 @@ public class DiaryControl {
     model.addAttribute("list", diaryDao.selectOtherList(((User) session.getAttribute("loginInfo")).getUser_no()));
     model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
     model.addAttribute("viewType", viewType);
-    return "../diary/list_othertimeline.jsp";
+    return "../diary/list_othertimeline.jsp?viewType=1";
   }
   
   @RequestMapping("/list_bookmarktimeline")
   public String listBookmarkTimeLine(HttpSession session, Model model, int viewType) {
     model.addAttribute("list", diaryDao.selectBookmarkList(((User)session.getAttribute("loginInfo")).getUser_no()));
     model.addAttribute("viewType", viewType);
-    return "../diary/list_bookmarktimeline.jsp";
+    return "../diary/list_bookmarktimeline.jsp?viewType=1";
   }
   
   @RequestMapping("/logout")
