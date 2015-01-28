@@ -93,6 +93,11 @@ public class DiaryControl {
       return "../diary/list_mytimeline.jsp";
   }
   
+  @RequestMapping("/list_add")
+  public void listAdd(int page){
+	  System.out.println("slfkjsfdsfdl");
+  }
+  
   @RequestMapping("/list_othertimeline")
   public String listOtherList(Model model, HttpSession session, int viewType) {
     model.addAttribute("list", diaryDao.selectOtherList(((User) session.getAttribute("loginInfo")).getUser_no()));
