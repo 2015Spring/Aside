@@ -1,6 +1,7 @@
 package ktds.aside.dao;
 
 
+import java.util.HashMap;
 import java.util.List;
 
 import ktds.aside.domain.Comment;
@@ -35,6 +36,21 @@ public class DiaryDao {
     SqlSession sqlSession = sqlSessionFactory.openSession();
     try {
       return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectMyList", no);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    } finally {
+      sqlSession.close();
+    }
+  }
+  
+  public List<Diary> selectMyListAdd(int no, int page) {
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    try {
+    	HashMap<String, Integer> map = new HashMap<String, Integer>();
+    	map.put("no", no);
+    	map.put("page", page);
+      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectMyListAdd", map);
     } catch (Exception e) {
       e.printStackTrace();
       return null;

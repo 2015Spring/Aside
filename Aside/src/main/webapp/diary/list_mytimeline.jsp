@@ -15,10 +15,15 @@
 	</c:choose>
 	
 	<script>
-		var page = 1;
+		var page = 5;
 		$(window).scroll(function() {
 			if($(window).scrollTop()+$(window).height() == $(document).height()) {
-				$.post("./list_add.do?page="+page);
+				$contentLoadTriggered = true;
+				$.post("./list_add.do?page="+page, function(data){
+		            $("#list_div").append(data);
+		            $contentLoadTriggered = false;
+		        });
+				page = page + 5;
 			}
 		});
 	</script>
@@ -42,6 +47,7 @@
 					</div>
 				</c:when>
 				<c:otherwise>
+				<div id="list_div">
 					<c:forEach var="diary" items="${list}">
 					<div id="article_list_repeat_div">
 						<div id="article_list_repeat" onclick="location.href='view.do?no=${diary.diary_no}'"><!-- 반복 -->
@@ -63,6 +69,7 @@
 						</div><!-- 반복끝 -->
 					</div>
 					</c:forEach>
+				</div>
 				</c:otherwise>
 				</c:choose>
 				<br><br>

@@ -94,8 +94,9 @@ public class DiaryControl {
   }
   
   @RequestMapping("/list_add")
-  public void listAdd(int page){
-	  System.out.println("slfkjsfdsfdl");
+  public String listAdd(HttpSession session, Model model, int page){
+	  model.addAttribute("list", diaryDao.selectMyListAdd(((User)session.getAttribute("loginInfo")).getUser_no(), page));
+	  return "list_add.jsp";
   }
   
   @RequestMapping("/list_othertimeline")

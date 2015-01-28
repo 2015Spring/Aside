@@ -21,6 +21,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		diary_image from diary
 		where user_no = #{no}
 		order by diary_date desc
+		limit 0, 5
+	</select>
+	
+	<select id="selectMyListAdd" parameterType="map" resultType="Diary">
+		select
+		user_no, diary_no, diary_date, diary_context, diary_isopen, diary_iscomment,
+		diary_image from diary
+		where user_no = #{no}
+		order by diary_date desc
+		limit #{page}, 5
 	</select>
 
 	<select id="selectOne" parameterType="Diary" resultType="Diary">
