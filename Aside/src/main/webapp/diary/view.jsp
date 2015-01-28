@@ -10,8 +10,8 @@
   <script>
    $(window).load(function() {
        $('#diary_form').css('display', 'none');  
-       $('#diary_view #image_radio_open').attr('checked', getBoolean($('#diary_view #image_radio_open_label').html()));
-       $('#diary_view #image_radio_comment').attr('checked', getBoolean($('#diary_view #image_radio_comment_label').html()));
+       $('#diary_view #image_radio_open').attr('checked', ${diary.diary_isopen});
+       $('#diary_view #image_radio_comment').attr('checked', ${diary.diary_iscomment});
        
        $(function() {
            $('#image_button_update').click(function() {
@@ -19,8 +19,8 @@
              $('#diary_form').css('display', 'block');
              $('#diary_form #diary_date').val($('#diary_view #diary_date').val());
              $('#diary_form #diary_context').val($('#diary_view #diary_context').val());
-             $('#diary_form #image_radio_open').attr('checked', getBoolean($('#diary_view #image_radio_open_label').html()));
-             $('#diary_form #image_radio_comment').attr('checked', getBoolean($('#diary_view #image_radio_comment_label').html()));
+             $('#diary_form #image_radio_open').attr('checked', ${diary.diary_isopen});
+             $('#diary_form #image_radio_comment').attr('checked', ${diary.diary_iscomment});
            });
            
            $('#image_button_cancle').click(function() {
@@ -31,19 +31,26 @@
        });
    });
    
-   function getBoolean(str) {
-     if(str.trim() == "true") return true;
-     else return false;
-   }
-   
    var xmlReq;
    function createAjax() {
    	xmlReq = new XMLHttpRequest();
    }
    
-   function bookmark(ctrl) {
+   function updateIsBookmark(ctrl) {
    	createAjax();
-   	xmlReq.open("POST", "asyn_bookmark.jsp?diary_no="+ctrl.value+"&bookmark="+ctrl.checked, true);
+   	xmlReq.open("POST", "asyn_bookmark.jsp?diary_no="+${diary.diary_no}+"&bookmark="+ctrl.checked, true);
+   	xmlReq.send(null);
+   }
+   
+   function updateIsComment(ctrl) {
+   	createAjax();
+   	xmlReq.open("POST", "asyn_iscomment.jsp?diary_no="+${diary.diary_no}+"&iscomment="+ctrl.checked, true);
+   	xmlReq.send(null);
+   }
+   
+   function updateIsOpen(ctrl) {
+   	createAjax();
+   	xmlReq.open("POST", "asyn_isopen.jsp?diary_no="+${diary.diary_no}+"&isopen="+ctrl.checked, true);
    	xmlReq.send(null);
    }
    
@@ -137,10 +144,10 @@
                 value="<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}"/>"/>
               <c:choose>
               <c:when test="${diary.is_bookmark > 0}">
-              	<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark" checked="checked" />
+              	<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark" checked="checked" onclick="bookmark(this)"/>
               </c:when>
               <c:otherwise>
-              	<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark"/>
+              	<input type="checkbox" id="diary_bookmark" class="diary_other_bookmark" onclick="updateIsBookmark(this)"/>
               </c:otherwise>
               </c:choose>
           </div>
@@ -155,12 +162,12 @@
       
       <div id="article_buttons">
         <div id="article_button_left">
-          <label id="image_radio_open_label" style="display: none">${diary.diary_isopen}</label>
-          <label id="image_radio_comment_label" style="display: none">${diary.diary_iscomment}</label>
-          <input type="checkbox" name="diary_isopen" id="image_radio_open"
-            onclick="return false"> <input type="checkbox"
-            name="diary_iscomment" id="image_radio_comment"
-            onclick="return false">
+          <c:choose>
+            <c:when test="${diary.user_no == loginInfo.user_no}">
+              <input type="checkbox" name="diary_isopen" id="image_radio_open" onclick="updateIsOpen(this)"> 
+              <input type="checkbox" name="diary_iscomment" id="image_radio_comment" onclick="updateIsComment(this)">
+            </c:when>
+          </c:choose>
           <!-- 댓글쓰기 버튼 -->
           <c:choose>
             <c:when test="${diary.diary_iscomment == true}">
