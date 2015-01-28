@@ -81,11 +81,17 @@
 
 #list_text {
 	float:left;
+	width:710px;
+}
+
+#list_text_img {
+	width:400px;
+	float:left;
 }
 
 #list_image {
 	float:right;
 	width:300px;
 	height:180px;
-	margin-top:-38px;
+	margin-top:10px;
 }

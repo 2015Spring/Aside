@@ -1,8 +1,7 @@
 @CHARSET "EUC-KR";
 
 #article_list {
-	float:left;
-	width:92%;
+	width:96%;
 	display:table;
 }
 
@@ -21,11 +20,14 @@
 }
 
 #article_list_repeat_div {
-	width:100%;
+	width:386px;
 	background-color: #E2E2E2;
 	padding:15px;
 	margin-bottom:10px;
+	margin:0px 22px 10px 0px;
 	border-radius:5px;
+	display:table;
+	float:left;
 }
 
 #bookmark {
@@ -47,8 +49,7 @@
 }
 
 #article_list_repeat{
-	display:inline-block;
-	width:95%;
+	width:92%;
 	cursor:pointer;
 }
 
@@ -65,7 +66,7 @@
 }
 
 #list_title {
-	width:300px;
+	width:80%;
 	font-size:16pt;
 	font-weight:bold;
 	color:#595959;
@@ -80,12 +81,15 @@
 }
 
 #list_text {
-	float:left;
+	width:350px;
+}
+
+#list_text_img {
+	width:350px;
 }
 
 #list_image {
-	float:right;
-	width:300px;
-	height:180px;
-	margin-top:-38px;
+	margin:5px 0px 5px -10px;
+	width:280px;
+	height:160px;
 }
