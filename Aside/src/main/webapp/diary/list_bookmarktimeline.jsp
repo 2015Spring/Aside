@@ -47,7 +47,7 @@
 				<c:choose>
 				<c:when test="${list.equals([])}">
 					<div id="empty_list">
-						<a href="list_othertimeline.do">
+						<a href="list_othertimeline.do?viewType=1">
 							<img src="../image/menus/menu_otherlist.png" style="float:left; margin:3px 20px 20px;"/>
 							공유 된 일기를 보고, 마음에 드는 일기를 즐겨찾기 해 보세요!<br><br>
 							<img src="../image/bookmark_inactive.png"/>&nbsp;&nbsp;버튼을 눌러 즐겨찾기를 설정하고<br>

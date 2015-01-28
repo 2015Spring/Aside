@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% System.out.println("È£Ãâ!"); %>
 <c:forEach var="diary" items="${list}">
 	<div id="article_list_repeat_div">
 		<label id="bookmark">
