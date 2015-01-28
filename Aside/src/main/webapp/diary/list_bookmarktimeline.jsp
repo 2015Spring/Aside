@@ -53,6 +53,10 @@ function bookmark(ctrl) {
 										<fmt:formatDate pattern="yyyy/MM/dd HH:mm:ss" value="${diary.diary_date}" />
 									</label>
 								</div>
+								<!-- 이미지 -->
+								<c:if test="${diary.diary_image!=null }">
+								 	<img id="list_image" src="../files/${diary.diary_image}">
+								</c:if>
 								<pre>${diary.diary_context}</pre>
 							</div><!-- 반복끝 -->
 						</div>

@@ -23,7 +23,7 @@
 #article_list_repeat_div {
 	width:100%;
 	background-color: #E2E2E2;
-	padding:15px 15px 3px 18px;
+	padding:15px;
 	margin-bottom:10px;
 	border-radius:5px;
 }
@@ -47,6 +47,7 @@
 }
 
 #article_list_repeat{
+	display:inline-block;
 	width:95%;
 	cursor:pointer;
 }
@@ -64,7 +65,7 @@
 }
 
 #list_title {
-	width:100%;
+	width:300px;
 	font-size:16pt;
 	font-weight:bold;
 	color:#595959;
@@ -76,6 +77,17 @@
 #article pre {
 	border:0px #E2E2E2;
 	background-color:#E2E2E2;
+}
+
+#list_text {
+	float:left;
+}
+
+#list_image {
+	float:right;
+	width:300px;
+	height:180px;
+	margin-top:-38px;
 }
 /*----------- ¸®½ºÆ® -----------*/
 
