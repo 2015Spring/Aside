@@ -1,0 +1,42 @@
+@CHARSET "EUC-KR";
+
+#image_radio_open {
+	background: url(../image/add,update_icon/add,update_lock.png) left
+		center no-repeat;
+}
+
+#image_radio_open:checked {
+	background: url(../image/add,update_icon/add,update_unlock.png) left
+		center no-repeat;
+}
+
+#image_radio_comment:checked {
+	background: url(../image/add,update_icon/add,update_cmactive.png) left
+		center no-repeat;
+}
+
+#image_radio_comment {
+	background: url(../image/add,update_icon/add,update_cminactive.png) left
+		center no-repeat;
+}
+
+#image_button_insert {
+	background: url(../image/add,update_icon/add,update_insert.png)
+		no-repeat;
+}
+
+#image_button_cancle {
+	background: url(../image/add,update_icon/add,update_cancle.png)
+		no-repeat;
+}
+
+#image_button_update {
+	background: url(../image/view_icon/view_modify.png)
+		no-repeat;
+}
+
+#image_button_delete {
+	background: url(../image/view_icon/view_delete.png)
+		no-repeat;
+}
+
