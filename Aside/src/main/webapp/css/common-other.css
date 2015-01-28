@@ -1,0 +1,256 @@
+@CHARSET "EUC-KR";
+/*----------- 리스트 -----------*/
+#article_list {
+	float:left;
+	width:92%;
+	display:table;
+}
+
+#empty_list {
+	border:4px dotted #8E8E8E;
+	border-radius:5px;
+	padding:30px;
+	margin-top:25px;
+	background-color:#EAEAEA;
+}
+
+#empty_list a {
+	text-decoration:none;
+	color:#595959;
+	opacity:1;
+}
+
+#article_list_repeat_div {
+	width:100%;
+	background-color: #E2E2E2;
+	padding:15px;
+	margin-bottom:10px;
+	border-radius:5px;
+}
+
+#bookmark {
+	float:right;
+	margin-top:-5px;
+}
+
+#diary_bookmark {
+	border: none;
+	width: 28px;
+	height: 28px;
+	background-size: 28px;
+	-webkit-appearance: none;
+	background: url(../image/bookmark_inactive.png) left center no-repeat;
+}
+
+#diary_bookmark:checked {
+	background: url(../image/bookmark_active.png) left center no-repeat;
+}
+
+#article_list_repeat{
+	display:inline-block;
+	width:95%;
+	cursor:pointer;
+}
+
+#article_list_repeat a {
+	text-decoration:none;
+	width:100%;
+	height:100%;
+}
+
+#article_list_repeat a:hover {
+	text-decoration:none;
+	width:100%;
+	height:100%;
+}
+
+#list_title {
+	width:300px;
+	font-size:16pt;
+	font-weight:bold;
+	color:#595959;
+	text-decoration:none;
+	line-height:25pt;
+	cursor:pointer;
+}
+
+#article pre {
+	border:0px #E2E2E2;
+	background-color:#E2E2E2;
+}
+
+#list_text {
+	float:left;
+}
+
+#list_image {
+	float:right;
+	width:300px;
+	height:180px;
+	margin-top:-38px;
+}
+/*----------- 리스트 -----------*/
+
+
+/*-----------add.jsp / view.jsp -----------*/
+#diary_form, #diary_view{
+	width: 100%;
+	height:100%;
+	background-color: #E0E0E0;
+	border-radius: 5px;
+	padding: 30px 30px 20px 30px;
+	display: inline-block;
+}
+
+#diary_date:read-only {
+	widgh:100%;
+	background-color:none;
+	cursor:default;
+	float:left;
+}
+
+#diary_date_other:read-only {
+	width:95%;
+	float:left;
+	background-color:none;
+	cursor:default;
+}
+
+#article #diary_context {
+	min-height:400px;
+	resize:none;
+}
+
+#diary_context:read-only {
+	background-color:none;
+	cursor:default;
+}
+
+.diary_other_bookmark {
+	float:right;
+}
+
+#article_buttons {
+	display:inline-block;
+	width:100%;
+	height:100%
+}
+
+#article_button_left {
+	float:left;
+	width:20%;
+	height:100%;
+}
+
+#article_button_right {
+	float:right;
+	margin:5px 0px 0px;
+}
+
+#image_button_insert, #image_button_cancle,
+#image_button_update, #image_button_delete {
+	border: none;
+	width: 42px;
+	height: 42px;
+}
+
+#image_radio_open, #image_radio_comment {
+	border: none;
+	width: 42px;
+	height: 42px;
+	background-size: 42px;
+	-webkit-appearance: none;
+}
+
+/*-----------add.jsp / view.jsp -----------*/
+
+
+
+/*----------- view type -----------*/
+#view_type {
+	float:right;
+	width:34px;
+}
+
+#view_type img {
+	padding:0px 0px 8px 2px;
+}
+/*----------- view type -----------*/
+
+
+
+/*----------- comment -----------*/
+#comment_context {
+	min-height:5px;
+	resize:none;
+}
+
+#comment_btn {
+	-webkit-appearance:none;
+	border:none;
+	padding-top:12px;
+	cursor:pointer;
+}
+
+#comment_repeat_form {
+	width:100%;
+	min-height:60px;
+	background-color:none;
+	margin-top:10px;
+}
+
+#comment_repeat {
+	width:100%;
+	min-height:37px;
+	background-color:#E0E0E0;
+	border-radius:5px;
+	padding:10px 40px 5px;
+	margin-bottom:5px;
+}
+
+.comment_textarea:read-only {
+	width:85%;
+	background-color:#E0E0E0;
+	border:none;
+	resize:none;
+}
+
+.comment_textarea {
+	width:85%;
+	background-color:white;
+	border:none;
+	resize:none;
+}
+
+#comment_buttons {
+	float:right;
+	margin-top:4px;
+}
+
+#comment_update_btn, #comment_delete_btn {
+	-webkit-apperance: none;
+	border: none;
+	background: none;
+	margin:0px;
+	padding:0px;
+	color:#A5A5A5;
+}
+
+#comment_update_btn:hover {
+	color:#1297E0;
+}
+
+#comment_delete_btn:hover {
+	color:#F75C4C;
+}
+
+/*----------- comment -----------*/
+
+#image_list{
+	border:none;
+	padding:0px;
+	width: 56px;
+	height: 56px;
+	background-size: 56px;
+	-webkit-appearance: none;
+}

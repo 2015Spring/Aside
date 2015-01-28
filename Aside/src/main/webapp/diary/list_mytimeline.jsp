@@ -5,7 +5,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<jsp:include page="head_settings.jsp"/>
+	<c:choose>
+		<c:when test="${viewType==1}">
+			<jsp:include page="head_settings.jsp"/>
+		</c:when>
+		<c:otherwise>
+			<jsp:include page="head_settings-grid.jsp"/>
+		</c:otherwise>
+	</c:choose>
 </head>
 
 <body>

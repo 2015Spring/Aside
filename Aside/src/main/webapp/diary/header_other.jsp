@@ -62,13 +62,13 @@
     
 		<div id="header">
 			<div style="float:left">
-				<a href="list_mytimeline.do"><img src="../image/logo.png"></a>
+				<a href="list_mytimeline.do?viewType=1"><img src="../image/logo.png"></a>
 			</div>
 			<div id="diary_menu">
 			
 				<a href="add.jsp"><img src="../image/menus/menu_add.png"></a>
-				<a href="list_othertimeline.do"><img src="../image/menus/menu_mylist.png"></a>
-				<a href="list_bookmarktimeline.do"><img src="../image/menus/menu_bookmark.png"></a>
+				<a href="list_othertimeline.do?viewType=1"><img src="../image/menus/menu_mylist.png"></a>
+				<a href="list_bookmarktimeline.do?viewType=1"><img src="../image/menus/menu_bookmark.png"></a>
 				<img src="../image/menus/menu_setting.png"
 						onclick="settingLayer()" style="cursor:pointer"/>
 						

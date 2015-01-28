@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,7 +25,7 @@ int user_no = new Integer(request.getParameter("no"));
 		</div>
 		<div class="form-group">
 			<input type="password" name="user_password_retype" class="form-control input-lg" placeholder="retype password">
-		</div>
+		</div>                           
 		<div class="form-group">
 			<input type="submit" value="CHANGE" class="btn btn-primary input-lg btn-block">
 		</div>

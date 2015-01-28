@@ -5,7 +5,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<jsp:include page="head_settings.jsp"/>
+	<c:choose>
+		<c:when test="${viewType==1}">
+			<jsp:include page="head_settings.jsp"/>
+		</c:when>
+		<c:otherwise>
+			<jsp:include page="head_settings-grid.jsp"/>
+		</c:otherwise>
+	</c:choose>
 <script>
 var xmlReq;
 function createAjax() {
@@ -51,7 +58,7 @@ function bookmark(ctrl) {
 							<c:if test="${diary.diary_image!=null }">
 							 	<img id="list_image" src="../files/${diary.diary_image}">
 							</c:if>
-							<pre>${diary.diary_context}</pre>
+							<pre id="list_text">${diary.diary_context}</pre>
 						</div><!-- 반복끝 -->
 					</div>
 				</c:forEach>

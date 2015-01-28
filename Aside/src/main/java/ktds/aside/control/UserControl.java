@@ -33,7 +33,7 @@ public class UserControl {
       if(user != null)
       {
         session.setAttribute("loginInfo", user);
-        return "redirect:../diary/list_mytimeline.do";
+        return "redirect:../diary/list_mytimeline.do?viewType=1";
       }else
       {
         return "redirect:login.html";
