@@ -29,6 +29,29 @@ public class DiaryControl {
   
   @Autowired
   ServletContext context;
+  
+  @RequestMapping("/logout")
+  public String logout(HttpSession session)
+  {
+	  session.invalidate();
+	  return "redirect:../";
+  }
+  
+  @RequestMapping("/signout")
+  public String signout(HttpSession session)
+  {
+	  userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
+	  session.invalidate();
+	  return "redirect:../";
+  }
+  
+  @RequestMapping("/setpassword")
+  public String setpassword(HttpSession session)
+  {
+	  userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
+	  session.invalidate();
+	  return "redirect:../";
+  }
 
   @RequestMapping("/add")
   public String add(Diary diary, HttpSession session, MultipartFile file) {
@@ -51,7 +74,19 @@ public class DiaryControl {
     diaryDao.insert(diary);
     return "redirect:list_mytimeline.do?viewType=1";
   }
+  
+  @RequestMapping("/update")
+  public String update(Diary diary) {
+	  diaryDao.update(diary);
+	  return "redirect:view.do?no="+diary.getDiary_no();
+  }
 
+  @RequestMapping("/delete")
+  public String delete(int no) {
+	  diaryDao.delete(no);
+	  return "redirect:list_mytimeline.do?viewType=1";
+  }
+  
   @RequestMapping("/view")
   public String view(int no, Model model, HttpSession session) {
 	  Diary diary = new Diary();
@@ -64,33 +99,26 @@ public class DiaryControl {
       return "/diary/view.jsp";
   }
   
-  @RequestMapping("/comment")
-  public String comment(int no, Model model) {
-	  Diary diary = new Diary();
-	  diary.setDiary_no(no);
-	  
-      model.addAttribute("list", diaryDao.selectComment(no));
-      model.addAttribute("diary", diaryDao.selectOne(diary));
-      return "/diary/comment.jsp";
-  }
-
-  @RequestMapping("/delete")
-  public String delete(int no) {
-    diaryDao.delete(no);
-    return "redirect:list_mytimeline.do?viewType=1";
-  }
-
-  @RequestMapping("/update")
-  public String update(Diary diary) {
-    diaryDao.update(diary);
-    return "redirect:view.do?no="+diary.getDiary_no();
-  }
-  
   @RequestMapping("/list_mytimeline")
   public String listTimeline(HttpSession session, Model model, int viewType){
       model.addAttribute("list", diaryDao.selectMyList(((User)session.getAttribute("loginInfo")).getUser_no()));
       model.addAttribute("viewType", viewType);
       return "../diary/list_mytimeline.jsp?viewType=1";
+  }
+  
+  @RequestMapping("/list_othertimeline")
+  public String listOtherList(Model model, HttpSession session, int viewType) {
+	  model.addAttribute("list", diaryDao.selectOtherList(((User) session.getAttribute("loginInfo")).getUser_no()));
+	  model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
+	  model.addAttribute("viewType", viewType);
+	  return "../diary/list_othertimeline.jsp?viewType=1";
+  }
+  
+  @RequestMapping("/list_bookmarktimeline")
+  public String listBookmarkTimeLine(HttpSession session, Model model, int viewType) {
+	  model.addAttribute("list", diaryDao.selectBookmarkList(((User)session.getAttribute("loginInfo")).getUser_no()));
+	  model.addAttribute("viewType", viewType);
+	  return "../diary/list_bookmarktimeline.jsp?viewType=1";
   }
   
   @RequestMapping("/list_mytimeline_add")
@@ -106,41 +134,20 @@ public class DiaryControl {
 	  return "list_othertimeline_add.jsp";
   }
   
-  @RequestMapping("/list_othertimeline")
-  public String listOtherList(Model model, HttpSession session, int viewType) {
-    model.addAttribute("list", diaryDao.selectOtherList(((User) session.getAttribute("loginInfo")).getUser_no()));
-    model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
-    model.addAttribute("viewType", viewType);
-    return "../diary/list_othertimeline.jsp?viewType=1";
+  @RequestMapping("/list_bookmarktimeline_add")
+  public String listBookmarktimelineAdd(HttpSession session, Model model, int page){
+	  model.addAttribute("list", diaryDao.selectBookmarkListAdd(((User) session.getAttribute("loginInfo")).getUser_no(), page));
+	  model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
+	  return "list_bookmarktimeline_add.jsp";
   }
   
-  @RequestMapping("/list_bookmarktimeline")
-  public String listBookmarkTimeLine(HttpSession session, Model model, int viewType) {
-    model.addAttribute("list", diaryDao.selectBookmarkList(((User)session.getAttribute("loginInfo")).getUser_no()));
-    model.addAttribute("viewType", viewType);
-    return "../diary/list_bookmarktimeline.jsp?viewType=1";
-  }
-  
-  @RequestMapping("/logout")
-  public String logout(HttpSession session)
-  {
-    session.invalidate();
-    return "redirect:../";
-  }
-  
-  @RequestMapping("/signout")
-  public String signout(HttpSession session)
-  {
-    userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
-    session.invalidate();
-    return "redirect:../";
-  }
-  
-  @RequestMapping("/setpassword")
-  public String setpassword(HttpSession session)
-  {
-    userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
-    session.invalidate();
-    return "redirect:../";
+  @RequestMapping("/comment")
+  public String comment(int no, Model model) {
+	  Diary diary = new Diary();
+	  diary.setDiary_no(no);
+	  
+      model.addAttribute("list", diaryDao.selectComment(no));
+      model.addAttribute("diary", diaryDao.selectOne(diary));
+      return "/diary/comment.jsp";
   }
 }

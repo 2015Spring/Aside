@@ -31,44 +31,17 @@ public class DiaryDao {
       sqlSession.close();
     }
   }
-
-  public List<Diary> selectMyList(int no) {
-    SqlSession sqlSession = sqlSessionFactory.openSession();
-    try {
-      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectMyList", no);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return null;
-    } finally {
-      sqlSession.close();
-    }
-  }
   
-  public List<Diary> selectMyListAdd(int no, int page) {
-    SqlSession sqlSession = sqlSessionFactory.openSession();
-    try {
-    	HashMap<String, Integer> map = new HashMap<String, Integer>();
-    	map.put("no", no);
-    	map.put("page", page);
-      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectMyListAdd", map);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return null;
-    } finally {
-      sqlSession.close();
-    }
-  }
-  
-  public Diary selectOne(Diary diary) {
-    SqlSession sqlSession = sqlSessionFactory.openSession();
-    try {
-      return sqlSession.selectOne("ktds.aside.dao.DiaryDao.selectOne", diary);
-    } catch (Exception e) {
-      e.printStackTrace();
-      return null;
-    } finally {
-      sqlSession.close();
-    }
+  public void update(Diary diary) {
+	  SqlSession sqlSession = sqlSessionFactory.openSession();
+	  try {
+		  sqlSession.delete("ktds.aside.dao.DiaryDao.update", diary);
+		  sqlSession.commit();
+	  } catch (Exception e) {
+		  e.printStackTrace();
+	  } finally {
+		  sqlSession.close();
+	  }
   }
 
   public void delete(int no) {
@@ -82,17 +55,29 @@ public class DiaryDao {
       sqlSession.close();
     }
   }
-
-  public void update(Diary diary) {
-    SqlSession sqlSession = sqlSessionFactory.openSession();
-    try {
-      sqlSession.delete("ktds.aside.dao.DiaryDao.update", diary);
-      sqlSession.commit();
-    } catch (Exception e) {
-      e.printStackTrace();
-    } finally {
-      sqlSession.close();
-    }
+  
+  public Diary selectOne(Diary diary) {
+	  SqlSession sqlSession = sqlSessionFactory.openSession();
+	  try {
+		  return sqlSession.selectOne("ktds.aside.dao.DiaryDao.selectOne", diary);
+	  } catch (Exception e) {
+		  e.printStackTrace();
+		  return null;
+	  } finally {
+		  sqlSession.close();
+	  }
+  }
+  
+  public List<Diary> selectMyList(int no) {
+	  SqlSession sqlSession = sqlSessionFactory.openSession();
+	  try {
+		  return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectMyList", no);
+	  } catch (Exception e) {
+		  e.printStackTrace();
+		  return null;
+	  } finally {
+		  sqlSession.close();
+	  }
   }
   
   public List<Diary> selectOtherList(int no) {
@@ -104,6 +89,33 @@ public class DiaryDao {
     } finally {
       sqlSession.close();
     }
+  }
+  
+  public List<Diary> selectBookmarkList(int no) {
+	  SqlSession sqlSession = sqlSessionFactory.openSession();
+	  try {
+		  return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectBookmarkList", no);
+	  } catch (Exception e) {
+		  e.printStackTrace();
+		  return null;
+	  } finally {
+		  sqlSession.close();
+	  }
+  }
+  
+  public List<Diary> selectMyListAdd(int no, int page) {
+	  SqlSession sqlSession = sqlSessionFactory.openSession();
+	  try {
+		  HashMap<String, Integer> map = new HashMap<String, Integer>();
+		  map.put("no", no);
+		  map.put("page", page);
+		  return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectMyListAdd", map);
+	  } catch (Exception e) {
+		  e.printStackTrace();
+		  return null;
+	  } finally {
+		  sqlSession.close();
+	  }
   }
   
   public List<Diary> selectOtherListAdd(int no, int page) {
@@ -120,17 +132,20 @@ public class DiaryDao {
     }
   }
   
-  public List<Diary> selectBookmarkList(int no) {
+  public List<Diary> selectBookmarkListAdd(int no, int page) {
     SqlSession sqlSession = sqlSessionFactory.openSession();
     try {
-      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectBookmarkList", no);
+    	HashMap<String, Integer> map = new HashMap<String, Integer>();
+    	map.put("no", no);
+    	map.put("page", page);
+      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectBookmarkListAdd", map);
     } catch (Exception e) {
-      e.printStackTrace();
       return null;
     } finally {
       sqlSession.close();
     }
   }
+  
 
   public List<Comment> selectComment(int no) {
     SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -142,7 +157,6 @@ public class DiaryDao {
     } finally {
       sqlSession.close();
     }
-    
   }
   
 }
