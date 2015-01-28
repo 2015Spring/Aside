@@ -13,6 +13,15 @@
 			<jsp:include page="head_settings-grid.jsp"/>
 		</c:otherwise>
 	</c:choose>
+	
+	<script>
+		var page = 1;
+		$(window).scroll(function() {
+			if($(window).scrollTop()+$(window).height() == $(document).height()) {
+				$.post("./list_add.do?page="+page);
+			}
+		});
+	</script>
 </head>
 
 <body>
