@@ -8,6 +8,7 @@ public class Comment {
   int user_no;
   Date comment_date;
   String comment_context;
+  
   public int getComment_no() {
     return comment_no;
   }
