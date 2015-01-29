@@ -1,8 +1,5 @@
 package ktds.aside.domain;
 
-import java.util.Date;
-
-
 public class User {
   int user_no;
   String user_email;

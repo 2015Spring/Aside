@@ -24,7 +24,31 @@
 	cursor:default;
 }
 
-#article #diary_context {
+#article {
+	min-height:400px;
+	resize:none;
+}
+
+#diary_image_div {
+	min-height:400px;
+}
+
+#diary_image, #diary_view_image {
+	margin-left:-13px;
+	margin-top:20px;
+	margin:20px 0px 20px -13px;
+	width:160px;
+	height:219px;
+}
+
+#diary_image_add {
+	float:right;
+	width:20%;
+}
+
+#diary_context {
+	float:left;
+	width:76%;
 	min-height:400px;
 	resize:none;
 }
@@ -96,7 +120,6 @@
 #comment_btn {
 	-webkit-appearance:none;
 	border:none;
-	padding-top:12px;
 	cursor:pointer;
 }
 

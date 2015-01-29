@@ -5,120 +5,130 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-  <jsp:include page="head_settings.jsp"/>
-  
-  <script>
-   $(window).load(function() {
-       $('#diary_form').css('display', 'none');  
-       $('#diary_view #image_radio_open').attr('checked', ${diary.diary_isopen});
-       $('#diary_view #image_radio_comment').attr('checked', ${diary.diary_iscomment});
-       
-       $(function() {
-           $('#image_button_update').click(function() {
-             $('#diary_view').css('display', 'none');
-             $('#diary_form').css('display', 'block');
-             $('#diary_form #diary_date').val($('#diary_view #diary_date').val());
-             $('#diary_form #diary_context').val($('#diary_view #diary_context').val());
-             $('#diary_form #image_radio_open').attr('checked', ${diary.diary_isopen});
-             $('#diary_form #image_radio_comment').attr('checked', ${diary.diary_iscomment});
-           });
-           
-           $('#image_button_cancle').click(function() {
-             $('#diary_view').css('display', 'block');
-             $('#diary_form').css('display', 'none');
-           });
-           
-       });
-   });
-   
-   var xmlReq;
-   function createAjax() {
-   	xmlReq = new XMLHttpRequest();
-   }
-   
-   function updateIsBookmark(ctrl) {
-   	createAjax();
-   	xmlReq.open("POST", "asyn_bookmark.jsp?diary_no="+${diary.diary_no}+"&bookmark="+ctrl.checked, true);
-   	xmlReq.send(null);
-   }
-   
-   function updateIsComment(ctrl) {
-   	createAjax();
-   	xmlReq.open("POST", "asyn_iscomment.jsp?diary_no="+${diary.diary_no}+"&iscomment="+ctrl.checked, true);
-   	xmlReq.send(null);
-   }
-   
-   function updateIsOpen(ctrl) {
-   	createAjax();
-   	xmlReq.open("POST", "asyn_isopen.jsp?diary_no="+${diary.diary_no}+"&isopen="+ctrl.checked, true);
-   	xmlReq.send(null);
-   }
-   
-   function comment() {
-       var diary_no = document.getElementById("diary_no");
-       var comment_context = document.getElementById("comment_context");
-       
-       if(comment_context.value != ""){
-    	createAjax();
-        
-        xmlReq.open("POST", "asyn_comment.jsp?diary_no="+diary_no.value
-            +"&comment_context="+comment_context.value, false);
-        xmlReq.send(null);
-        
-        comment_context.value = "";
-        
-        $("#comment").load("./comment.do?no=${diary.diary_no}");
-        }
-   }
-   
-   function deleteComment(comment_no)
-   {
-	   createAjax();
-       
-       xmlReq.open("POST", "asyn_deleteComment.jsp?comment_no="+comment_no, false);
-       xmlReq.send(null);
-       
-       $("#comment").load("./comment.do?no=${diary.diary_no}");
-   }
-   
-   function updateComment(comment_no, update_text)
-   {	
-	   createAjax();
-       
-       xmlReq.open("POST", "asyn_updateComment.jsp?comment_no="
-    		   +comment_no+"&comment_context="+update_text, false);
-       xmlReq.send(null);
-       
-       
-       $("#comment").load("./comment.do?no=${diary.diary_no}");
-   }
-   
-   var onoff = false;
-   function commentView(){
-       
-    if(onoff==false){
-      onoff=true;
-      document.getElementById("comment").style.display = "block";
-      }else{
-        onoff=false;
-        document.getElementById("comment").style.display = "none";
-      }
-    }
-   
-   function gotoUpdate(comment_no){
-	  var updateButton = document.getElementById("comment_update_"+comment_no);
-		
-	  if($("#"+comment_no).prop("readonly")==true){
-		  $("#"+comment_no).prop("readonly", false);
-		  updateButton.className = "glyphicon glyphicon-ok";
-	  }else{
-		  updateComment(comment_no, $("#"+comment_no).val());
-		  $("#"+comment_no).prop("readonly", true);
-		  updateButton.className = "glyphicon glyphicon-pencil";
-	  }
-   }
-   
-  </script>
+	<script type="text/javascript" src="../common/js/jquery-1.9.1.min.js" charset="euc-kr"></script>
+	<jsp:include page="head_settings.jsp"/>
+	
+	<script type="text/javascript">
+	   $(window).load(function() {
+	       $('#diary_form').css('display', 'none');  
+	       $('#diary_view #image_radio_open').attr('checked', ${diary.diary_isopen});
+	       $('#diary_view #image_radio_comment').attr('checked', ${diary.diary_iscomment});
+	       
+	       $(function() {
+	           $('#image_button_update').click(function() {
+	             $('#diary_view').css('display', 'none');
+	             $('#diary_form').css('display', 'block');
+	             $('#diary_form #diary_date').val($('#diary_view #diary_date').val());
+	             $('#diary_form #diary_context').val($('#diary_view #diary_context').val());
+	             $('#diary_form #image_radio_open').attr('checked', ${diary.diary_isopen});
+	             $('#diary_form #image_radio_comment').attr('checked', ${diary.diary_iscomment});
+	           });
+	           
+	           $('#image_button_cancle').click(function() {
+	             $('#diary_view').css('display', 'block');
+	             $('#diary_form').css('display', 'none');
+	           });
+	           
+	       });
+	   });
+	   
+	   var xmlReq;
+	   function createAjax() {
+	   	xmlReq = new XMLHttpRequest();
+	   }
+	   
+	   function updateIsBookmark(ctrl) {
+	   	createAjax();
+	   	xmlReq.open("POST", "asyn_bookmark.jsp?diary_no="+${diary.diary_no}+"&bookmark="+ctrl.checked, true);
+	   	xmlReq.send(null);
+	   }
+	   
+	   function updateIsComment(ctrl) {
+	   	createAjax();
+	   	xmlReq.open("POST", "asyn_iscomment.jsp?diary_no="+${diary.diary_no}+"&iscomment="+ctrl.checked, true);
+	   	xmlReq.send(null);
+	   }
+	   
+	   function updateIsOpen(ctrl) {
+	   	createAjax();
+	   	xmlReq.open("POST", "asyn_isopen.jsp?diary_no="+${diary.diary_no}+"&isopen="+ctrl.checked, true);
+	   	xmlReq.send(null);
+	   }
+	   
+	   function comment() {
+	       var diary_no = document.getElementById("diary_no");
+	       var comment_context = document.getElementById("comment_context");
+	       
+	       if(comment_context.value != ""){
+	    	createAjax();
+	        
+	        xmlReq.open("POST", "asyn_comment.jsp?diary_no="+diary_no.value
+	            +"&comment_context="+comment_context.value, false);
+	        xmlReq.send(null);
+	        
+	        comment_context.value = "";
+	        
+	        $("#comment").load("./comment.do?no=${diary.diary_no}");
+	        }
+	   }
+	   
+	   function deleteComment(comment_no)
+	   {
+		   createAjax();
+	       
+	       xmlReq.open("POST", "asyn_deleteComment.jsp?comment_no="+comment_no, false);
+	       xmlReq.send(null);
+	       
+	       $("#comment").load("./comment.do?no=${diary.diary_no}");
+	   }
+	   
+	   function updateComment(comment_no, update_text)
+	   {	
+		   createAjax();
+	       
+	       xmlReq.open("POST", "asyn_updateComment.jsp?comment_no="
+	    		   +comment_no+"&comment_context="+update_text, false);
+	       xmlReq.send(null);
+	       
+	       
+	       $("#comment").load("./comment.do?no=${diary.diary_no}");
+	   }
+	   
+	   var onoff = false;
+	   function commentView(){
+	       
+	    if(onoff==false){
+	      onoff=true;
+	      document.getElementById("comment").style.display = "block";
+	      }else{
+	        onoff=false;
+	        document.getElementById("comment").style.display = "none";
+	      }
+	    }
+	   
+	   function gotoUpdate(comment_no){
+		  var updateButton = document.getElementById("comment_update_"+comment_no);
+			
+		  if($("#"+comment_no).prop("readonly")==true){
+			  $("#"+comment_no).prop("readonly", false);
+			  updateButton.className = "glyphicon glyphicon-ok";
+		  }else{
+			  updateComment(comment_no, $("#"+comment_no).val());
+			  $("#"+comment_no).prop("readonly", true);
+			  updateButton.className = "glyphicon glyphicon-pencil";
+		  }
+	   }
+	   
+	   function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        reader.onload = function (e) {
+		            $("#diary_view_image").attr("src", e.target.result);
+		        }
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+</script>
 </head>
 
 <body>
@@ -157,7 +167,19 @@
       
       <!-- 내용 -->
       <div class="form-group">
-        <textarea id="diary_context" class="form-control" readonly="readonly">${diary.diary_context}</textarea>
+      	<div class="form-group" id="diary_image_div">
+			<div id="diary_image_add">
+				<c:choose>
+			  		<c:when test="${diary.diary_image!=null}">
+				  		<img id="diary_image" src="../files/${diary.diary_image}">
+				 	</c:when>
+				 	<c:otherwise>
+				 		<img id="diary_image" src="../image/noimage.png">
+				 	</c:otherwise>
+				</c:choose>
+			</div>
+			<textarea id="diary_context" class="form-control" readonly="readonly">${diary.diary_context}</textarea>
+		</div>
       </div>
       
       <div id="article_buttons">
@@ -171,9 +193,14 @@
           <!-- 댓글쓰기 버튼 -->
           <c:choose>
             <c:when test="${diary.diary_iscomment == true}">
-              <div style="float: right;" onclick="commentView()">
-                <img src="../image/view_icon/view_comment.png" id="comment_btn"/>
-              </div>
+            	<c:choose>
+            		<c:when test="${diary.user_no == loginInfo.user_no}">
+		               <img src="../image/view_icon/view_comment.png" id="comment_btn" 
+		               		onclick="commentView()" style="float: right; padding-top:13px;"/>
+               		</c:when>
+               		<c:otherwise>
+               		</c:otherwise>
+               	</c:choose>
             </c:when>
           </c:choose>
           
@@ -186,6 +213,10 @@
               <input type="button" id="image_button_delete"
                 onclick="location.href='delete.do?no=${diary.diary_no}';"/>
             </c:when>
+            <c:otherwise>
+            	<img src="../image/view_icon/view_comment.png" id="comment_btn" 
+		               		onclick="commentView()" style="float: right;"/>
+            </c:otherwise>
           </c:choose>
         </div>
         
@@ -193,16 +224,30 @@
     </div>
 
     <!-- 수정 -->
-    <form action="update.do" method="post" id="diary_form">
+    <form action="update.do" method="post" id="diary_form" enctype="multipart/form-data">
       <input type="hidden" name="diary_no" value="${diary.diary_no}">
       <div class="form-group">
         <input type="text" name="diary_date" id="diary_date" readonly
           class="form-control input-lg">
       </div>
       <br><br>
+      
+	  <!-- 내용 -->
       <div class="form-group">
-        <textarea name="diary_context" id="diary_context"
-          class="form-control"></textarea>
+      	<div class="form-group" id="diary_image_div">
+			<div id="diary_image_add">
+				<c:choose>
+			  		<c:when test="${diary.diary_image!=null}">
+				  		<img id="diary_view_image" src="../files/${diary.diary_image}">
+				 	</c:when>
+				 	<c:otherwise>
+				 		<img id="diary_view_image" src="../image/noimage.png">
+				 	</c:otherwise>
+				</c:choose>
+				<input type="file" name="file" onchange="readURL(this);">
+			</div>
+			<textarea id="diary_context" name="diary_context" class="form-control">${diary.diary_context}</textarea>
+		</div>
       </div>
       
       <div id="article_buttons">

@@ -1,6 +1,7 @@
 package ktds.aside.dao;
 
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -146,11 +147,22 @@ public class DiaryDao {
     }
   }
   
-
   public List<Comment> selectComment(int no) {
     SqlSession sqlSession = sqlSessionFactory.openSession();
     try {
       return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectComment", no);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    } finally {
+      sqlSession.close();
+    }
+  }
+  
+  public List<Date> selectDate(int user_no) {
+    SqlSession sqlSession = sqlSessionFactory.openSession();
+    try {
+      return sqlSession.selectList("ktds.aside.dao.DiaryDao.selectDate", user_no);
     } catch (Exception e) {
       e.printStackTrace();
       return null;

@@ -30,34 +30,12 @@ public class DiaryControl {
   @Autowired
   ServletContext context;
   
-  @RequestMapping("/logout")
-  public String logout(HttpSession session)
-  {
-	  session.invalidate();
-	  return "redirect:../";
-  }
-  
-  @RequestMapping("/signout")
-  public String signout(HttpSession session)
-  {
-	  userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
-	  session.invalidate();
-	  return "redirect:../";
-  }
-  
-  @RequestMapping("/setpassword")
-  public String setpassword(HttpSession session)
-  {
-	  userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
-	  session.invalidate();
-	  return "redirect:../";
-  }
-
   @RequestMapping("/add")
   public String add(Diary diary, HttpSession session, MultipartFile file) {
     User user = (User) session.getAttribute("loginInfo");
     diary.setUser_no(user.getUser_no());
     
+    // 이미지 처리
     if(file.getOriginalFilename().length()>0){
 	    String realPath = context.getRealPath("/files");
 	    String filename = "photo_" + System.currentTimeMillis();
@@ -75,18 +53,6 @@ public class DiaryControl {
     return "redirect:list_mytimeline.do?viewType=1";
   }
   
-  @RequestMapping("/update")
-  public String update(Diary diary) {
-	  diaryDao.update(diary);
-	  return "redirect:view.do?no="+diary.getDiary_no();
-  }
-
-  @RequestMapping("/delete")
-  public String delete(int no) {
-	  diaryDao.delete(no);
-	  return "redirect:list_mytimeline.do?viewType=1";
-  }
-  
   @RequestMapping("/view")
   public String view(int no, Model model, HttpSession session) {
 	  Diary diary = new Diary();
@@ -97,6 +63,41 @@ public class DiaryControl {
       model.addAttribute("diary", diaryDao.selectOne(diary));
       model.addAttribute("loginInfo", ((User) session.getAttribute("loginInfo")));
       return "/diary/view.jsp";
+  }
+  
+  @RequestMapping("/comment")
+  public String comment(int no, Model model) {
+	  Diary diary = new Diary();
+	  diary.setDiary_no(no);
+	  
+      model.addAttribute("list", diaryDao.selectComment(no));
+      model.addAttribute("diary", diaryDao.selectOne(diary));
+      return "/diary/comment.jsp";
+  }
+  
+  @RequestMapping("/delete")
+  public String delete(int no) {
+	  diaryDao.delete(no);
+	  return "redirect:list_mytimeline.do?viewType=1";
+  }
+  
+  @RequestMapping("/update")
+  public String update(Diary diary, MultipartFile file) {
+	  // 이미지 처리
+	  if(file.getOriginalFilename().length()>0){
+		 String realPath = context.getRealPath("/files");
+		 String filename = "photo_" + System.currentTimeMillis();
+		 try {
+		    file.transferTo(new File(realPath + "/" + filename));
+		    diary.setDiary_image(filename);
+		 } catch (IllegalStateException e) {
+		    e.printStackTrace();
+		 } catch (IOException e) {
+		    e.printStackTrace();
+		 }
+	 }
+	diaryDao.update(diary);
+	return "redirect:view.do?no="+diary.getDiary_no();
   }
   
   @RequestMapping("/list_mytimeline")
@@ -141,13 +142,34 @@ public class DiaryControl {
 	  return "list_bookmarktimeline_add.jsp";
   }
   
-  @RequestMapping("/comment")
-  public String comment(int no, Model model) {
-	  Diary diary = new Diary();
-	  diary.setDiary_no(no);
-	  
-      model.addAttribute("list", diaryDao.selectComment(no));
-      model.addAttribute("diary", diaryDao.selectOne(diary));
-      return "/diary/comment.jsp";
+  @RequestMapping("/logout")
+  public String logout(HttpSession session)
+  {
+	  session.invalidate();
+	  return "redirect:../";
   }
+  
+  @RequestMapping("/signout")
+  public String signout(HttpSession session)
+  {
+	  userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
+	  session.invalidate();
+	  return "redirect:../";
+  }
+  
+  @RequestMapping("/setpassword")
+  public String setpassword(HttpSession session)
+  {
+	  userDao.delete(((User)session.getAttribute("loginInfo")).getUser_no());
+	  session.invalidate();
+	  return "redirect:../";
+  }
+  
+  @RequestMapping("/select_date")
+  public String selectDate(HttpSession session,Model model)
+  {
+    model.addAttribute("list", diaryDao.selectDate(((User)session.getAttribute("loginInfo")).getUser_no()));
+    return "../diary/list_myCalendar.jsp";
+  }
+  
 }

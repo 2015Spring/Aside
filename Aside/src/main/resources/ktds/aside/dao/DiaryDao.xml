@@ -5,7 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ktds.aside.dao.DiaryDao">
 
-
 	<insert id="insert" parameterType="Diary">
 		insert into diary
 		(user_no,diary_context,diary_isopen,
@@ -21,7 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		= #{diary_context},
 		diary_isopen = #{diary_isopen},
 		diary_iscomment =
-		#{diary_iscomment}
+		#{diary_iscomment},
+		diary_image = #{diary_image}
 		where diary_no=#{diary_no}
 	</update>
 
@@ -127,6 +127,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE
 		FROM comment
 		WHERE diary_no=#{diary_no}
+	</select>
+	
+	<select id="selectDate" parameterType="int" resultType="java.util.Date">
+	    select
+	    diary_date from diary
+	    where user_no = #{user_no}
+	    order by diary_date asc
 	</select>
 
 </mapper>

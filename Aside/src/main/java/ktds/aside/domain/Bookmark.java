@@ -1,8 +1,5 @@
 package ktds.aside.domain;
 
-import java.util.Date;
-
-
 public class Bookmark {
   int user_no;
   int diary_no;
