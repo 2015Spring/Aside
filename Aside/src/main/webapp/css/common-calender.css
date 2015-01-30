@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+#calender_table {
+	width:100%;
+	height:400px;
+}
+
+#year_month {
+	font-size:47pt;
+}
+
+.btn_left {
+	margin-right:10px;
+	cursor:pointer;
+}
+
+.btn_right {
+	margin-left:10px;
+	cursor:pointer;
+}

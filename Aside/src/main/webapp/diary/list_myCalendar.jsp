@@ -12,14 +12,18 @@
 			  var today;
 			  var data_today;
 			  var flag = 0;
-			    var text = '<table>\n<tr><td colspan=7 style="text-align:center">'; 
-			    text += '<span onclick="showCalendar('+(y-1)+','+m+')"> Y- </span>'; 
-			    text += '<span onclick="showCalendar('+(m==1?(y-1)+','+12:y+','+(m-1))+')"> M- </span>'; 
-			    text += '[' + y + '/' + ((m < 10) ? ('0' + m) : m) + ']'; 
-			    text += '<span onclick="showCalendar('+(m==12?(y+1)+','+1:y+','+(m+1))+')"> M+ </span>'; 
-			    text += '<span onclick="showCalendar('+(y+1)+','+m+')"> Y+ </span>'; 
+			    var text = '<table id="calender_table">\n<tr><td colspan=7 style="text-align:center">'; 
+			    text += '<span onclick="showCalendar('+(y-1)+','+m+')">';
+			    text += '<img src="../image/calender/calender_y_m.png" class="btn_left"/></span>'; 
+			    text += '<span onclick="showCalendar('+(m==1?(y-1)+','+12:y+','+(m-1))+')">';
+			    text += '<img src="../image/calender/calender_m_m.png" class="btn_left"/> </span>'; 
+			    text += '<span id="year_month">[' + y + '/' + ((m < 10) ? ('0' + m) : m) + ']</span>'; 
+			    text += '<span onclick="showCalendar('+(m==12?(y+1)+','+1:y+','+(m+1))+')">';
+			    text += '<img src="../image/calender/calender_m_p.png" class="btn_right"/> </span>'; 
+			    text += '<span onclick="showCalendar('+(y+1)+','+m+')">';
+			    text += '<img src="../image/calender/calender_y_p.png" class="btn_right"/></span>'; 
 			    text += '</td>'; 
-			
+			    
 			    var d1 = (y+(y-y%4)/4-(y-y%100)/100+(y-y%400)/400 
 			          +m*2+(m*5-m*5%9)/9-(m<3?y%4||y%100==0&&y%400?2:3:4))%7; 
 			    for (i = 0; i < 42; i++) { 
@@ -69,7 +73,10 @@
 		<jsp:include page="header_other.jsp"/>
 		
 		<div id="article">
-			<div id="calendarDiv" style="font-family:Gulim;font-size:9pt;"></div>			
+			<div style="float:left;">
+				<div id="calendarDiv"></div>
+			</div>
+						
 			<jsp:include page="view_type_my.jsp"/> 
 		</div>
 		
